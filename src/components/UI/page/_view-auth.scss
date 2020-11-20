@@ -1,0 +1,51 @@
+.page_view-auth {
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+	&:before,
+	&:after {
+		content: '';
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		position: absolute;
+		height: 0;
+		padding-top:calc(100vh * 800 / 1080);
+		width: calc(100vw * 800 / 1920);
+		z-index: 1;
+	}
+	&:before {
+		background-image: url(../assets/images/img-login-left.png);
+		top:-calc(100vh * 224 / 1080);
+		left: -calc(100vw * 213 / 1920)
+	}
+	&:after {
+		background-image: url(../assets/images/img-doctor.png);
+		bottom:-calc(100vh * 224 / 1080);
+		right: -calc(100vw * 236 / 1920)
+	}
+	.page__title {
+		position: absolute;
+		top:50%;
+		left: 50%;
+		transform: translate(-308px, calc(-50% - 284px - (36px*1.2)));
+		width:615px;
+		text-align: center;
+		font-family: $secondary_font;
+		font-size: 36px;
+		font-weight: 500;
+	}
+	.content {
+		position: relative;
+		z-index: 2;
+		width:615px;
+		height: 425px;
+		flex-grow: initial;
+		margin: 0;
+		padding: 50px 70px 60px;
+	}
+	.btn-group {
+		margin-top: 3.75rem;
+	}
+}

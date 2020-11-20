@@ -1,0 +1,29 @@
+block checkupResultSettimgs
+-
+	if (checkupResultItem === undefined) {
+		var checkupResultItem = {
+			type : 'blood-preasure',
+			value : '100',
+			approved : true,
+			icon: 'ic-arterial-pressure'
+		}
+	}
+	//type = ['blood-preasure', 'alcohol', 'temperature']
+	//icons = ['ic-arterial-pressure', 'ic-ethanol', 'ic-temperature']
+
+	var cls = 'checkup__result-item';
+	if (checkupResultItem.type !== '')
+		cls = cls + ' result_type-' + checkupResultItem.type + ' ' + ((checkupResultItem.approved) ? 'result_approved' : 'result_notapproved');
+
+	var title = '';
+	if (checkupResultItem.type === 'blood-preasure') title = 'Артериальное<br/>давление';
+	if (checkupResultItem.type === 'alcohol') title = 'Пары<br/>этанола';
+	if (checkupResultItem.type === 'temperature') title = 'Температура<br/>тела';
+
+div(class=cls)
+	.checkup__result-icon
+		+sprite-mix(checkupResultItem.icon)
+	.checkup__result-item__title !{title}
+	.checkup__result-item__value= checkupResultItem.value
+
+

@@ -1,0 +1,45 @@
+.status {
+	line-height: 24px;
+	white-space: nowrap;
+	font-weight: 500;
+	&:before {
+		width: 24px;
+		height: 24px;
+		content: '';
+		vertical-align: middle;
+		display: inline-block;
+		margin-right: 15px;
+	}
+	&.status-enabled,
+	&.status-passed {
+		&:before {
+			@include sprite('ic-check');
+		}
+		color: $c_device_status_enabled;
+	}
+	&.status-disabled,
+	&.status-failed {
+		&:before {
+			@include sprite('ic-close');
+		}
+		color: $c_device_status_disabled;
+	}
+	&.status-unavailable {
+		&:before {
+			@include sprite('ic-unavailable');
+		}
+		color: $c_device_status_unavailable;
+	}
+	&.status-process {
+		&:before {
+			@include sprite('ic-processing');
+		}
+		color: $c_device_status_processing;
+	}
+	&.status-waiting {
+		&:before {
+			@include sprite('ic-waiting');
+		}
+		color: $c_device_status_waiting;
+	}
+}

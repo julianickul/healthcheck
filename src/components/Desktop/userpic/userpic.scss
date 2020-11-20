@@ -1,0 +1,92 @@
+.content {
+	&.content_view-user-approved {
+		.user-checkup__results .userpic__item {
+			&:before {
+				@include sprite('ic-check');
+				content:'';
+			}
+		}
+	}
+	&.content_view-user-notapproved {
+		.user-checkup__results  .userpic__item {
+			&:before {
+				@include sprite('ic-close');
+				content:'';
+			}
+		}
+	}
+}
+.userpic__item {
+	display: inline-block;
+	position: relative;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+	&:before {
+		position: absolute;
+		z-index: 1;
+		content: none;
+		display: block;
+		@include sprite-common-rules;
+	}
+	&.userpic_size-s {
+		width: 80px;
+		height: 80px;
+		&:before {
+			width: 20px;
+			height: 20px;
+			top:-4px;
+			right: -4px;
+		}
+	}
+	&.userpic_size-m {
+		width: 199px;
+		height: 199px;
+		&:before {
+			width: 41px;
+			height: 41px;
+			top: -11px;
+			right: -11px;
+		}
+	}
+	&.userpic_size-l {
+		width: 249px;
+		height: 249px;
+		&:before {
+			width: 62px;
+			height: 62px;
+			top: -16px;
+			right: -16px;
+		}
+	}
+	&.userpic_size-xl {
+		width: 407px;
+		height: 407px;
+		&:before {
+			width: 83px;
+			height: 83px;
+			top: -22px;
+			right: -22px;
+		}
+	}
+	&.userpic_mark-approved {
+		&:before {
+			@include sprite('ic-check');
+			content:'';
+		}
+	}
+	&.userpic_mark-refused {
+		&:before {
+			@include sprite('ic-close');
+			content:'';
+		}
+	}
+}
+
+.userpics {
+	.userpic__item {
+		display: inline-block;
+		margin: 6px 5px;
+	}
+}

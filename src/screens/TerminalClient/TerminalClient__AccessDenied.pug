@@ -1,0 +1,16 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			img: 'img-login-left',
+			title:'Доступ запрещен',
+			text: 'Пройдите к врачу для получения доступа',
+			type: 'info'
+		}
+		var progressBarItem = {size:'100%'};
+
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

@@ -1,0 +1,56 @@
+block userCheckupSettings
+-
+	if (userData === undefined)
+		var userData = {
+			name: '-',
+			sex: '-',
+			birthDate: '-',
+			age: '-',
+			company: '-',
+			department: '-',
+			position: '-',
+			checkupTime: '-'
+		}
+	if (userpicItem === undefined) {
+		var userpicItem = {
+			src: '', 
+			size: ''
+		}
+	}
+	var dataLabels = {
+			name: 'ФИО',
+			sex: 'Пол',
+			birthDate: 'Дата рождения',
+			age: 'Возраст',
+			company: 'Организация',
+			department: 'Подразделение',
+			position: 'Должность',
+			checkupTime: 'Время проведения осмотра'
+		}
+	
+	if (!userpicItem.size) userpicItem.size = 'xl';
+	if (!userpicItem.src) userpicItem.src = false;
+
+	var contentCls = 'content'
+	if (checkupApproved === true) 
+		contentCls += ' content_view-user-approved';
+	else if (checkupApproved === false)
+		contentCls += ' content_view-user-notapproved';
+
+div(class=contentCls)
+	.user-checkup
+		include ./userCheckupForm.pug
+
+		.user-checkup__results
+			.user-checkup__img
+				include ../userpic/userpic
+				if (checkupApproved === true) 
+					.user-checkup__conclusion Осмотр пройден
+				else if (checkupApproved === false)
+					.user-checkup__conclusion Осмотр не пройден
+				
+			.user-checkup__data
+				each value, index in userData
+					dl
+						dt= dataLabels[index]
+						dd= value

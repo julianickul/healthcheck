@@ -1,0 +1,43 @@
+//Vendors
+// Required
+/*@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+$theme-colors: (
+  "primary":#275599
+);
+$input-placeholder-color: rgba(71, 95, 123, 0.5);
+$input-btn-border-width : 2px;
+$btn-border-width: 2px;
+
+// Optional
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/utilities/flex";
+*/
+@import '../../components/Terminal/_custom_bootstrap';
+
+//UI KIT
+@import '../../components/UI/_mixins';
+@import '../../components/UI/_fonts';
+@import '../../components/Terminal/_variables';
+@import '../../components/UI/_layout';
+
+
+//Layout blocks
+@import '../../components/UI/_form';
+@import '../../components/UI/button/button';
+@import '../../components/UI/input/input';
+
+
+// final redefine base styles
+@import '../../components/Terminal/pageTerminal/pageTerminal';
+@import '../../components/Terminal/_form';
+
+@import '../../components/Terminal/progressBar/progressBar';
+@import '../../components/Terminal/dialog/dialog';
+@import '../../components/Terminal/checkup/checkup';
+@import '../../components/Terminal/checkupResult/checkupResult';

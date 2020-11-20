@@ -1,0 +1,322 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	-
+		var breadcrumbsArr = [{text: 'Архив', last: true}]
+	
+block pageContent
+	.content
+		include ../../components/UI/breadcrumbs/breadcrumbs
+
+		.table__filter
+			.table__filter-period-input.form
+				- var inputArr = {label:false, placeholder:'Дата / Период', type:'text', id:'period', icon:'ic-calendar', readonly: true}
+				include ../../components/UI/input/input
+			.datepicker__wrapper#dp_wrapper
+				.datepicker__filter
+					.datepicker__switcher#dp_switcher
+						.datepicker__switcher__item
+							input(type='radio', name='dt_period', id='dt_period0', value='0', checked='checked')
+							label(for="dt_period0") День
+						.datepicker__switcher__item
+							input(type='radio', name='dt_period', id='dt_period1', value='1')
+							label(for="dt_period1") Период
+					.datepicker__inputs
+						.datepicker__inputs-item
+							- var inputArr = {label:false, placeholder:'', type:'text', id:'datepicker_day', icon:'ic-calendar'}
+							include ../../components/UI/input/input
+						.datepicker__inputs-item#datepicker_period
+							- var inputArr = {label:false, placeholder:'', type:'text', id:'datepicker_period01', icon:'ic-calendar'}
+							include ../../components/UI/input/input
+							- var inputArr = {label:false, placeholder:'', type:'text', id:'datepicker_period02', icon:'ic-calendar'}
+							include ../../components/UI/input/input
+
+				.datepicker__container
+					.datepicker__container__item#datepicker_day_container
+					.datepicker__container__item#datepicker_period_container
+				.datepicker__controls
+					- var buttonArr = {text: 'Выбрать', id:'dapicker_select', style:'primary', type: 'button'}
+					include ../../components/UI/button/button
+			
+			.btn-group
+				.btn-group__note Все настройки будут учтены при выгрузке
+				- var buttonArr = {text: 'Экспорт', style:'success', type: 'button'}
+				include ../../components/UI/button/button
+		
+		table.table.table_selectable(id='archive_table')
+			thead
+				tr
+					th 
+					//-.table__checkbox(rowspan="2")
+					th Терминал
+					th Дата
+					th Начало осмотра
+					th Окончание осмотра
+					th ФИО сотрудника
+					th ФИО врача
+					th Итог
+					th Cтатус
+					th
+				tr
+					th.table__checkbox
+						|<input type="checkbox" class="dt-checkboxes" name="select_all" id="all_chbk"/><label></label>
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+						input(type="text" class="form-control")
+					th
+					
+			tbody
+				//- row1
+				tr 
+					td.table__checkbox
+						|<input type="checkbox" name="id[]" value="10"/><label></label>
+					td 238KI8
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td Лукьянова Лукерья Константиновна
+					td Повышена температура
+					td 
+						- var status = 'passed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//-row2
+				tr 
+					td.table__checkbox
+						|<input type="checkbox" name="id[]" value="11"/><label></label>
+					td 238KI8
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Лукьянова Лукерья Константиновна
+					td Прокофьева Ольга Васильевна
+					td Алкоголь
+					td 
+						- var status = 'failed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//- row1
+				tr 
+					td.table__checkbox
+						|<input type="checkbox" name="id[]" value="12"/><label></label> 
+					td 238KI8
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td Прокофьева Ольга Васильевна
+					td Повышена температура
+					td 
+						- var status = 'passed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//-row2
+				tr 
+					td.table__checkbox
+						|<input type="checkbox" name="id[]" value="13"/><label></label> 
+					td 238KI8
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td Прокофьева Ольга Васильевна
+					td Повышена температура
+					td 
+						- var status = 'failed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//- row1
+				tr 
+					td.table__checkbox
+						|<input type="checkbox" name="id[]" value="14"/><label></label>
+					td 238KI8
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td Прокофьева Ольга Васильевна
+					td Повышена температура
+					td 
+						- var status = 'passed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//-row2
+				tr 
+					td.table__checkbox
+						|<input type="checkbox" name="id[]" value="15"/><label></label> 
+					td 238KI8
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td Прокофьева Ольга Васильевна
+					td Повышена температура
+					td 
+						- var status = 'failed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+
+block append bodyScripts
+	script(src="../assets/js/vendors/dataTables.select.min.js")
+	script(src="../assets/js/vendors/dataTables.checkboxes.min.js")
+	script(src="../assets/js/vendors/moment.min.js")
+	script(src="../assets/js/vendors/jquery.daterangepicker.min.js")
+	//script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+	//script(src="../assets/js/datepicker.js")
+	script.
+		$(document).ready(function() {
+			initArchiveTable();
+			//initDatepicker();
+		});
+	
+	script.
+		$(function() {
+			const datepicker_dropdown = $('#dp_wrapper');
+			const datepicker_containers = $('.datepicker__container__item');
+			const radioPeriod = $('input[name="dt_period"]');
+
+			const dateInput = $('#period');
+			const selectBtn = $('#dapicker_select');
+
+			const datepickerDay = $("#datepicker_day");
+			const datepickerPeriod = $("#datepicker_period");
+			const datepicker_input_containers = $('.datepicker__inputs-item');
+
+			let VIEW = $('input[name="dt_period"]:checked').val() || 0;
+
+			//Open/Close Datepicker Dropdown
+			dateInput.parent().on('click', function(e) {
+				e.preventDefault()
+				datepicker_dropdown.toggleClass('isVisible');
+				$(document).mouseup(function(e){
+					if (
+							!datepicker_dropdown.is(e.target) && 
+							datepicker_dropdown.has(e.target).length === 0 && 
+							dateInput.has(e.target).length === 0 
+						){
+							datepicker_dropdown.removeClass('isVisible');
+						}
+				})
+			})
+			
+			
+			//show Day mode or Period mode
+			const setView = (view) => {
+				$(datepicker_containers[view])
+					.show()
+					.siblings()
+					.hide();
+				
+				$(datepicker_input_containers[view])
+					.show()
+					.siblings()
+					.hide();
+			}
+			setView(VIEW);
+			radioPeriod.on('change', function(e) {
+				VIEW = $(this).val();
+				setView(VIEW)
+			})
+
+			//init calendars
+			datepickerDay.dateRangePicker({
+				format: 'DD.MM.YYYY',
+				separator: ' - ',
+				language: 'ru',
+				startOfWeek: 'monday',
+				showTopbar: false,
+				showShortcuts: false,
+				hoveringTooltip: false,
+				inline:true,
+				container:'#datepicker_day_container',
+				alwaysOpen:true,
+				singleDate : true,
+				singleMonth: true,
+				time: {
+					enabled: false
+				},
+				getValue: function() {
+					return $(this).val();
+				},
+				beforeShowDay: function(t){
+					var valid = !(t.getDay() == 0 || t.getDay() == 6);  //disable saturday and sunday
+					var _class = valid ? '' : 'weekend';
+					return [true,_class,''];
+				}
+			});
+
+			$('#datepicker_period').dateRangePicker({
+				format: 'DD.MM.YYYY',
+				//separator: ' - ',
+				language: 'ru',
+				startOfWeek: 'monday',
+				showTopbar: false,
+				showShortcuts: false,
+				hoveringTooltip: false,
+				inline:true,
+				container: '#datepicker_period_container',
+				alwaysOpen:true,
+				time: {
+					enabled: false
+				},
+				getValue: function() {
+					if ($('#datepicker_period01').val() && $('#datepicker_period02').val() )
+						return $('#datepicker_period01').val() + ' to ' + $('#datepicker_period02').val();
+					else
+						return '';
+				},
+				setValue: function(s,s1,s2) {
+					$('#datepicker_period01').val(s1);
+					$('#datepicker_period02').val(s2);
+				},
+				beforeShowDay: function(t){
+					var valid = !(t.getDay() == 0 || t.getDay() == 6);  //disable saturday and sunday
+					var _class = valid ? '' : 'weekend';
+					return [true,_class,''];
+				}
+			});
+				
+
+			// send data to main input
+			selectBtn.on('click', function(e) {
+				e.preventDefault();
+				if (VIEW == 0) {
+					dateInput.val(datepickerDay.val());
+				} else {
+					dateInput.val($('#datepicker_period01').val() + ' - ' +$('#datepicker_period02').val())
+				}
+				datepicker_dropdown.removeClass('isVisible');
+			})
+		})

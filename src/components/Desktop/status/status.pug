@@ -1,0 +1,20 @@
+block statusSettings
+	-
+		if (status === 'undefined') status = 'enabled';
+		var statusConst = {
+			'enabled' : {label: 'Работает', className: 'status-enabled'},
+			'disabled' : {label: 'Не работает', className: 'status-disabled'},
+			'unavailable': {label: 'Временно недоступен', className: 'status-unavailable'},
+			'passed': {label: 'Пройден', className: 'status-passed'},
+			'failed': {label: 'Не пройден', className: 'status-failed'},
+			'checkup_passed': {label: 'Осмотр завершен', className: 'status-passed'},
+			'checkup_failed': {label: 'Осмотр завершен', className: 'status-failed'},
+			'process': {label: 'Идет осмотр...', className: 'status-process'},
+			'waiting': {label: 'Режим ожидания...', className: 'status-waiting'}
+		}
+		var cls = "status "+ statusConst[status].className
+
+div(class=cls)= statusConst[status].label
+if (status === 'checkup_failed')
+	- var buttonArr = {text: 'Заполнить', style:'flat-red', type: 'button'}
+		include ../../UI/button/button

@@ -1,0 +1,18 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			title:'Есть жалобы на здоровье?',
+			type: 'info',
+			buttons: [
+				{text:'Да', style: 'outline-primary'},
+				{text:'Нет', style: 'primary'}
+			]
+		}
+		var progressBarItem = {size:'50%'};
+
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

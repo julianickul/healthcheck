@@ -1,0 +1,82 @@
+include ../../mixins.pug 
+
+- var ProjectName = 'ESMO_ARM'
+- var logo = {text: ProjectName, short_text: 'EA'}
+
+- 
+	var sidebarMenuArr = [ 
+		{text:'Главная', anchor:'home', img: 'ic-home', active: true}, 
+		{text:'Терминалы', anchor:'terminals', img: 'ic-checkup'}, 
+		{text:'Очередь', anchor: 'queue', img: 'ic-turn'}, 
+		{text:'Архив', anchor:'archive', img: 'ic-scaling'}, 
+		{
+			text:'Масштабируемость', 
+			anchor:'scale',
+			img: 'ic-scaling',
+			submenu: [
+				{text:'Пункт 1', anchor:'menu-item1'},
+				{
+					text:'Пункт 2',
+					anchor:'menu-item2',
+					submenu: [
+						{text:'Пункт 2.1', anchor:'#'},
+						{
+							text:'Пункт 2.2',
+							anchor:'#',
+							submenu: [
+								{text:'Пункт 2.2.1', anchor:'#'},
+								{text:'Пункт 2.2.2', anchor:'#'},
+							]
+						}
+					]
+				}
+			]
+		}]
+
+	var copyright = {text:'Все права защищены', company:{name:'Медотрейд', url:'https://medotrade.ru/'}}
+	var user = {name: 'Смирнова Н.В.', role: 'Дежурный врач', img: './'}
+	var pageView = 'compact'
+
+block pageSettings
+
+
+doctype html
+html
+	head
+		title= ProjectName
+		meta(charset="utf-8")
+		meta(name="keywords", content= ProjectName)
+		meta(name="description", content= ProjectName)
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+		link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap", rel="stylesheet")
+		//-link(rel="icon", href="favicon.ico", type="image/x-icon")
+		//-link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+		//-link(rel="icon", href="favicon.png", type="image/png")
+		
+		block headStyles
+			link(href="./styles.css", rel="stylesheet")
+
+	body
+		.svg-icons#svg-icons(style="display:none;")
+			include ../../../assets/compiled/svg/desktop_sprite.svg
+		div(class="wrapper page_view-" + pageView)
+			block sideBar
+				include ../sideBar/sideBar
+			block main
+				.page
+					block pageHeader
+						include ../header/header
+
+					block pageContent
+
+					block pageFooter
+						include ../footer/footer
+		
+		block bodyScripts
+			script(src="../assets/js/vendors/jquery.min.js")
+			script(src="../assets/js/vendors/jquery.dataTables.min.js")
+			script(src="../assets/js/vendors/bootstrap.bundle.min.js")
+			script(src="../assets/js/lib.js")
+			script.
+				initTogglePageView()

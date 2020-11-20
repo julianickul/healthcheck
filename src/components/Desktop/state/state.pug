@@ -1,0 +1,14 @@
+block stateSettings
+	-
+		if (stateItem === undefined) { 
+			var stateItem = {
+				type: 'work-begin',
+				label:'State descriptiom',
+				value: '-'
+			}
+		}
+.state__item
+	div(class="state__icon icon-" + stateItem.type)
+	.state__info
+		.state__label= stateItem.label
+		.state__value= stateItem.value

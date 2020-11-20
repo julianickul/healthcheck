@@ -1,0 +1,38 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	- 
+		var breadcrumbsArr = [{text: 'Очередь', last: false}, {text: '20.01.20 Прокофьева Ольга Васильевна', last: true}]
+		var scanResAccess = {approved: true, type: 'access', accessSummary: 'Сотрудник допущен к работе (направлен на смену)'};
+		var tabItems = [
+			{id: 'checkup_tab', href: 'checkup', label:'Осмотр', isActive: false},
+			{id: 'video_tab', href: 'video', label:'Видео', isActive: true},
+			{id: 'sign_tab', href: 'sign', label:'Подпись', isActive: false},
+			{id: 'card_tab', href: 'card', label:'Карточка сотрудника', isActive: false},
+			{id: 'history_tab', href: 'history', label:'История', isActive: false},
+			{id: 'docs_tab', href: 'docs', label:'Документы', isActive: false}
+		]
+
+	
+block pageContent
+	.content.content_view-user-approved
+		include ../../components/UI/breadcrumbs/breadcrumbs
+		.queue
+			include ../../components/Desktop/queue/queue_statePanel
+			include ../../components/Desktop/tab/tab
+
+block append bodyScripts
+	script(src="../assets/js/vendors/moment.min.js")
+	script(src="../assets/js/vendors/jquery.daterangepicker.min.js")
+	script.
+		$(document).ready(function() {
+			initSearchTable({
+				table_id:'history_table',
+				excludeLast : true
+			});
+			initUserCardEditButton();
+			initUserAccessSelect()
+			initScanResultsEdit();
+			initSimpleDatepicker($('#employment_start'));
+			initSimpleDatepicker($('#birth_date'));
+		});

@@ -1,0 +1,17 @@
+block selectSettings
+-
+	if (selectItem === undefined) {
+		var selectItem = {
+			label: 'Select',
+			id: 'select_id',
+			validationTip: 'required email',
+			options: ['option1', 'option2'],
+			readonly: false,
+			disabled: false
+		}
+	}
+
+label(for=selectItem.id)= selectItem.label
+select.custom-select(id=selectItem.id)
+	each val, index in selectItem.options
+		option= val

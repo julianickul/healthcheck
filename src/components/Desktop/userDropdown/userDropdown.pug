@@ -1,0 +1,16 @@
+block userSettings
+	- if (user === undefined) { var user = {name: 'Смирнова Н.В.', role: 'Дежурный врач', img: '../assets/images/temp/userpic.jpg'}}
+
+.dropdown
+	.dropdown-toggle.user-menu#userMenuToggle(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+		.user-menu__img
+			img(src=user.img)
+		.user-menu__data
+			.user-menu__name= user.name
+			.user-menu__role= user.role
+
+	.dropdown-menu.user-menu__dropdown.dropdown-menu-right(aria-labelledby="userMenuToggle")
+		a.dropdown-item(href="#") 
+			+sprite-mix('ic-logout')
+			|Выход
+

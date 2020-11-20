@@ -1,0 +1,31 @@
+block buttonSettings
+- 
+	if (buttonArr === undefined) {
+		var buttonArr = {
+			text: false,
+			id: '',
+			style: "primary",
+			type: "button",
+			disabled: false,
+			size: 'default', //lg/sm
+			readonly: false,
+			innerContainer: false // marker to wrap button text
+		};
+	}
+
+	var cls_initial = 'btn';
+	var cls = '';
+	if (buttonArr.style) 
+		cls += cls_initial + '-' + buttonArr.style;
+	else
+		cls += cls_initial + '-primary';
+
+	if (buttonArr.size && buttonArr.size !== 'default') 
+		cls += ' ' + cls_initial + '-' + buttonArr.size;
+	
+	cls = cls_initial + ' ' + cls;
+
+	var buttonText = (buttonArr.innerContainer === true) ? '<span>' + buttonArr.text + '</span>' : buttonArr.text
+	
+
+button(type=buttonArr.type, class=cls, disabled=buttonArr.disabled, readonly=buttonArr.readonly, id=(buttonArr.id)?buttonArr.id: '') !{buttonText}

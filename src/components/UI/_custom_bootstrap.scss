@@ -1,0 +1,174 @@
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+/* Color scheme overrides > */
+$theme-colors: (
+	"primary":    #275599,
+	"success":    #38c483,
+	"danger":     #fe2757,
+	"light":      #ecf0f6
+);
+$green-light:#e4f7ee;
+$red-light:#ffe7ed;
+$colors: map-merge(
+	(
+		"green-light": $green-light,
+		"red-light": $red-light
+	),
+	$colors
+);
+$theme-colors: map-merge(
+	(
+		"flat-green":    $green-light,
+		"flat-red":  $red-light
+	),
+	$theme-colors
+);
+$input-placeholder-color: rgba(71, 95, 123, 0.5);
+$breadcrumb-bg: transparent;
+$breadcrumb-padding-x: 0;
+
+$alert-bg-level:                    -11.5;
+$alert-border-level:                -11;
+
+$input-focus-border-color: #11448f;
+$input-error-border-color: #ff1146;
+$input-success-border-color:#22be76;
+$input-disabled-bg: #fbfbfb;
+
+/* ------------------ BTN INPUT -------------------------- */
+$input-btn-font-size: 14px;
+$input-btn-line-height: 17px;
+$input-btn-padding-x: 0.935rem;
+//$input-btn-padding-y: 0.345rem;
+$input-btn-padding-y: 0.48rem;
+
+$input-padding-y:		$input-btn-padding-y;
+$input-padding-x:		$input-btn-padding-x;
+$input-font-size:		$input-btn-font-size;
+$input-line-height:		$input-btn-line-height;
+
+$btn-padding-y:               $input-btn-padding-y;
+$btn-padding-x:               $input-btn-padding-x;
+$btn-font-size:               $input-btn-font-size;
+$btn-line-height:             $input-btn-line-height;
+
+
+/* -------------------- BTN-LG INPUT LG ------------------------------ */
+$input-btn-font-size-lg:	24px;
+$input-btn-line-height-lg:	34px;
+$input-btn-padding-x-lg:	1.46rem;
+$input-btn-padding-y-lg:	0.625rem;
+
+$input-padding-y-lg:		$input-btn-padding-y-lg;
+$input-padding-x-lg:		$input-btn-padding-x-lg;
+$input-font-size-lg:		$input-btn-font-size-lg;
+$input-line-height-lg:		$input-btn-line-height-lg;
+
+$btn-padding-y-lg:			$input-btn-padding-y-lg;
+$btn-padding-x-lg:			$input-btn-padding-x-lg;
+$btn-font-size-lg:			$input-btn-font-size-lg;
+$btn-line-height-lg:		$input-btn-line-height-lg;
+
+/* --------------------------- CUSTOM SELECT --------------------------- */
+$custom-select-font-size:			 $input-btn-font-size;
+$custom-select-line-height:			17px;
+$custom-select-indicator:           url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='rgba(11,43,92,.32)' fill-rule='nonzero' d='M15.038 9.74c.254-.253.666-.253.92 0 .228.229.25.585.068.84l-.068.08-3.526 3.525c-.228.229-.585.251-.839.069l-.08-.069-3.523-3.522c-.253-.254-.253-.666 0-.92.229-.228.585-.25.84-.068l.08.068 3.062 3.062 3.066-3.065z'/></svg>");
+$custom-select-focus-indicator:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='#{$input-focus-border-color}' fill-rule='nonzero' d='M15.038 9.74c.254-.253.666-.253.92 0 .228.229.25.585.068.84l-.068.08-3.526 3.525c-.228.229-.585.251-.839.069l-.08-.069-3.523-3.522c-.253-.254-.253-.666 0-.92.229-.228.585-.25.84-.068l.08.068 3.062 3.062 3.066-3.065z'/></svg>");
+$custom-select-error-indicator:     url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='#{$input-error-border-color}' fill-rule='nonzero' d='M15.038 9.74c.254-.253.666-.253.92 0 .228.229.25.585.068.84l-.068.08-3.526 3.525c-.228.229-.585.251-.839.069l-.08-.069-3.523-3.522c-.253-.254-.253-.666 0-.92.229-.228.585-.25.84-.068l.08.068 3.062 3.062 3.066-3.065z'/></svg>");
+$custom-select-success-indicator:   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='#{$input-success-border-color}' fill-rule='nonzero' d='M15.038 9.74c.254-.253.666-.253.92 0 .228.229.25.585.068.84l-.068.08-3.526 3.525c-.228.229-.585.251-.839.069l-.08-.069-3.523-3.522c-.253-.254-.253-.666 0-.92.229-.228.585-.25.84-.068l.08.068 3.062 3.062 3.066-3.065z'/></svg>");
+$custom-select-border-color:		rgba(11,43,92,.32);
+$custom-select-focus-border-color:  $input-focus-border-color;
+$custom-select-error-border-color:  $input-error-border-color;
+$custom-select-success-border-color:$input-success-border-color;
+$custom-select-focus-box-shadow: none;
+$custom-select-padding-y:           $input-padding-y;
+$custom-select-padding-x:           $input-padding-x;
+$custom-select-indicator-padding:   1rem;
+$custom-select-bg-size:				24px 24px;
+$custom-select-background:          escape-svg($custom-select-indicator) no-repeat right 0.5rem center / $custom-select-bg-size;
+$custom-select-focus-background:    escape-svg($custom-select-focus-indicator) no-repeat right 0.5rem center / $custom-select-bg-size;
+$custom-select-error-background:    escape-svg($custom-select-error-indicator) no-repeat right 0.5rem center / $custom-select-bg-size;
+$custom-select-success-background:	escape-svg($custom-select-success-indicator) no-repeat right 0.5rem center / $custom-select-bg-size;
+
+.custom-select {
+	&:focus {
+		background: $custom-select-bg $custom-select-focus-background;
+		border: $custom-select-border-width solid $custom-select-focus-border-color;
+	}
+}
+.error, .scan-result_refused {
+	.custom-select {
+		background: $custom-select-bg $custom-select-error-background;
+		border: $custom-select-border-width solid $custom-select-error-border-color;
+		&:focus {
+			background: $custom-select-bg $custom-select-error-background;
+			border: $custom-select-border-width solid $custom-select-error-border-color;
+		}
+	}
+}
+.scan-result_approved {
+	.custom-select {
+		background: $custom-select-bg $custom-select-success-background;
+		border: $custom-select-border-width solid $custom-select-success-border-color;
+		&:focus {
+			background: $custom-select-bg $custom-select-success-background;
+			border: $custom-select-border-width solid $custom-select-success-border-color;
+		}
+	}
+}
+
+/* -------------------- Dropdown ------------------------------ */
+$dropdown-link-active-color:#16181b;
+$dropdown-link-active-bg: #f8f9fa;
+
+
+// Optional
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/breadcrumb";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/utilities/flex";
+@import "node_modules/bootstrap/scss/alert";
+@import "node_modules/bootstrap/scss/custom-forms";
+@import "node_modules/bootstrap/scss/dropdown";
+@import "node_modules/bootstrap/scss/_transitions";
+
+
+
+
+/* 		Bootstrap Optional	 */
+/*@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";*/
+/*@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+*/
+//@import "../node_modules/bootstrap/scss/grid";
+/*@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/input-group";
+@import "../node_modules/bootstrap/scss/custom-forms";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/breadcrumb";
+@import "../node_modules/bootstrap/scss/pagination";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/progress";
+@import "../node_modules/bootstrap/scss/media";
+@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/toasts";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/popover";
+@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/print";*/

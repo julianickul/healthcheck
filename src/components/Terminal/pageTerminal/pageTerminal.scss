@@ -1,0 +1,14 @@
+h1 {
+	font-size: 3.75rem;
+	font-weight: 500;
+	letter-spacing: 0.88px;
+	text-align: center;
+	color: $T_c_header;
+	margin-bottom: 100px;
+}
+.content {
+	min-height: 100vh;
+	color:$c_terminal;
+	display: flex;
+	flex-direction: column;
+}

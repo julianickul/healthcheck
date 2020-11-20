@@ -1,0 +1,113 @@
+.sidebar {
+	position: fixed;
+	z-index: 1;
+	width: 284px;
+	transition: all .3s linear;
+}
+.page_view-compact {
+	.sidebar {
+		overflow: hidden;
+		.sidebar-menu__text {
+			opacity: 0;
+		}
+	}
+	.sidebar-menu .sidebar-menu {
+		display: none;
+		/*border:0 solid transparent;
+		background-color: transparent;*/
+	}
+}
+
+//1st level
+.sidebar-menu {
+	&__link {
+		padding: 7px 40px 7px 24px;
+		border-width: 1px 0;
+		border-color: transparent;
+		border-style: solid;
+		display: block;
+		position: relative;
+		color:$c_sidebar-text;
+		&[data-toggle="collapse"]{
+			&:after {
+				position: absolute;
+				right: 40px;
+				top:8px;
+				z-index: 1;
+				display: block;
+				content: "";
+				border:0;
+				//background: url("../assets/images/sprite.svg#ic-dropdown") no-repeat 50% 50%;
+				@include sprite('ic-dropdown');
+				background-repeat:no-repeat;
+				background-position: 50% 50%;
+				opacity: .4;
+				background-size: 20px;
+				width:22px;
+				height: 22px;
+			}
+			&[aria-expanded="true"]:after {
+				transform: rotate(180deg);
+			}
+		}
+		&:hover {
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+	
+	&__item.is-active > .sidebar-menu__link,
+	&__item > .sidebar-menu__link:hover {
+		border-color: $border_sidebar-active;
+		background-color: $bg_sidebar-active;
+	}
+	svg {
+		width: 24px;
+		height: 24px;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	&__text {
+		opacity: 1;
+		transition: all .3s linear;
+		vertical-align: middle;
+	}
+}
+
+//2nd level
+.sidebar-menu .sidebar-menu {
+	border: solid 1px $border_sidebar-active;
+	background-color: $bg_sidebar-active;
+	margin-top: -1px;
+
+	.sidebar-menu__item.is-active > .sidebar-menu__link,
+	.sidebar-menu__item > .sidebar-menu__link:hover {
+		border-radius: 8px;
+		background-color: $bg_sidebar-submenu-active;
+	}
+		
+	.sidebar-menu__link {
+		margin: 2px 37px;
+		padding: 7px 20px;
+		&[data-toggle="collapse"]{
+			&:after {
+				right:3px;
+			}
+		}
+	}
+}
+//3rd level
+.sidebar-menu .sidebar-menu .sidebar-menu {
+	background-color: transparent;
+	border:0;
+	.sidebar-menu__link {
+		margin-left: 52px;
+	}
+}
+//4th level
+.sidebar-menu .sidebar-menu .sidebar-menu .sidebar-menu {
+	.sidebar-menu__link {
+		margin-left: 62px;
+	}
+}

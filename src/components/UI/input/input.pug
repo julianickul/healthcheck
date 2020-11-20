@@ -1,0 +1,47 @@
+block inputSettings
+-
+	if (inputArr === undefined) {
+		var inputArr = {
+			label: 'label',
+			placeholder: 'please input text',
+			type: "text",
+			id: 'input_id',
+			validationTip: 'required email',
+			icon: 'icon_id',
+			size: 'default',
+			addClass: '',
+			value: '',
+			readonly: false
+		}
+	}
+	// size = ['lg', 'sm']
+	// addClass = ['form-group_size-short', 'form-group_size-wide']
+	
+	var cls = 'form-control';
+	var placeholder = (inputArr.placeholder) ? inputArr.placeholder : '';
+	if (inputArr.size && inputArr.size !== 'default') cls += ' ' + cls + '-' + inputArr.size;
+	
+	var clsGroup = 'form-group';
+	if (inputArr.addClass)
+		clsGroup += ' ' + inputArr.addClass;
+	if (inputArr.validationTip) clsGroup += ' error';
+
+	if (inputArr.value === undefined) inputArr.value = ''
+	var stateReadOnly = (inputArr.readonly) ? true : false;
+
+div(class= clsGroup)
+	if (inputArr.label !== undefined && inputArr.label)
+		label(for=inputArr.id)= inputArr.label
+	if (inputArr.icon)
+		- cls = cls + ' has-icon';
+
+		.form-control__wrapper
+			input(type=inputArr.type class=cls id=inputArr.id placeholder=placeholder value=inputArr.value readonly=stateReadOnly)
+			span.form-control__icon
+				+sprite-mix(inputArr.icon)
+	else
+		input(type=inputArr.type, class=cls, id=inputArr.id, placeholder=placeholder, value=inputArr.value readonly=stateReadOnly)
+	
+	if (inputArr.validationTip)
+		.form-control__tootlip= inputArr.validationTip
+

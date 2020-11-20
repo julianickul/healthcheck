@@ -1,0 +1,16 @@
+block checkupStepSettings
+-
+	if (checkupStepItem === undefined) {
+		var checkupStepItem = {
+			stepName: 'Архивное фото',
+		}
+	}
+	if (userpicItem === undefined) {
+		var userpicItem = {size:'m', src: '../assets/images/temp/userpic.jpg',  mark: 'approved'};
+	}
+
+.queue__checkup-step__item
+	include ../userpic/userpic
+	dl.queue__checkup-step__title
+		dd шаг
+		dt= checkupStepItem.stepName

@@ -1,0 +1,45 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	- var breadcrumbsArr = [{text: 'Настройки терминала', last: false}, {text: 'Терминал 1', last: true}]
+	
+block pageContent
+	.content
+		include ../../components/UI/breadcrumbs/breadcrumbs
+		include ../../components/Desktop/terminalControl/terminalControl
+		
+		.terminal__devices
+			.terminal__title Устройства терминала (медицинские)
+			.device__list
+				- var deviceItem = {type: 'tonometr', serial: 'AnD TM-2655P', status: 'enabled', cycles: '10/20', button: true}
+				include ../../components/Desktop/device/device
+
+				- var deviceItem = {type: 'alkotester', serial: 'AnD TM-2655P', status: 'disabled', cycles: '5/25', button: true}
+				include ../../components/Desktop/device/device
+				
+				- var deviceItem = {type: 'termometr', serial: 'BERRCOM JXB-183', status: 'unavailable', cycles: '10/20', button: true}
+				include ../../components/Desktop/device/device
+		
+		.terminal__devices
+			.terminal__title Устройства терминала (служебные)
+			.device__list
+				- var deviceItem = {type: 'camera', serial: 'Logitech HD C270', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device
+				
+				- var deviceItem = {type: 'monitor', serial: 'TS1716L-6C-A', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device
+				
+				- var deviceItem = {type: 'thermoprinter', serial: 'Custom TG 2480', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device
+
+				- var deviceItem = {type: 'cardreader', serial: 'Smartec ST-CE011EM', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device
+				
+				- var deviceItem = {type: 'ups', serial: 'APC Back-UPS 650VA', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device
+				
+				- var deviceItem = {type: 'nettop', serial: 'АТОЛ Т200 Celeron J1900,4 Гб', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device
+				
+				- var deviceItem = {type: 'usbhub', serial: 'BURO BU-HUB4-0.2-U3.0', status: 'enabled', cycles: false, button: false}
+				include ../../components/Desktop/device/device

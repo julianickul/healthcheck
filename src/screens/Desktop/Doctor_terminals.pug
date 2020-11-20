@@ -1,0 +1,207 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	-
+		var tableLabels = [
+			'Терминал',
+			'Дата',
+			'Начало осмотра',
+			'Окончание осмотра',
+			'ФИО',
+			'Фотографии',
+			'Результаты осмотра',
+			'Итог / статус',
+			'' //button
+		]
+		var tableValues = [
+			[
+				'1-HKKJ',
+				'16.01.2020',
+				'08:00',
+				'08:05',
+				'Прокофьева Ольга Васильевна',
+				'',
+				'',
+				'',
+				''
+			]
+		]
+		var breadcrumbsArr = [{text: 'Терминалы', last: true}]
+	
+block pageContent
+	.content
+		include ../../components/UI/breadcrumbs/breadcrumbs
+		
+		table.table(id='terminals')
+			thead
+				tr
+					each labelVal, labelIdx in tableLabels
+						th= labelVal
+						- if (labelVal === 'Cтатус') statusIndex = labelIdx
+
+			tbody
+				//- row1
+				tr 
+					td 1-HKKJ
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td
+						.userpics
+							- for (var i=0; i<4; i++) {
+								- var userpicItem = {size:'s', src: '../assets/images/temp/userpic.jpg',  mark: 'approved'}
+								include ../../components/Desktop/userpic/userpic
+							- }
+								
+					td
+						.scan-results
+							- 
+								var scanResults = [
+									{label:'Жалоб нет', approved: true},
+									{label:'АД', approved_value: '108/75 - 139/88', value: '120/80', approved: true},
+									{label:'Промилле', approved_value: 'до 0,35%', value: '0,2', approved: true},
+									{label:'Температура', approved_value: '35,8 - 37,6°C', value: '37,8', approved: false}
+								]
+							each scanValue, scanIdx in scanResults
+								- var scanresItem = scanValue
+								include ../../components/Desktop/scanResult/scanResult
+
+					td 
+						- var status = 'checkup_passed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//- row2
+				tr
+					td 2-HKKJ
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td
+						.userpics
+							- var userpicItem = {size:'s', src: '../assets/images/temp/userpic.jpg',  mark: 'approved'}
+								include ../../components/Desktop/userpic/userpic
+							- for (var i=0; i<3; i++) {
+								- var userpicItem = {size:'s'}
+								include ../../components/Desktop/userpic/userpic
+							- }
+								
+					td
+						.scan-results.scan-results-process
+							|Идет осмотр…
+
+					td 
+						- var status = 'process'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//- row3
+				tr
+					td 3-HKKJ
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td
+						.userpics
+							- for (var i=0; i<4; i++) {
+								- var userpicItem = {size:'s'}
+								include ../../components/Desktop/userpic/userpic
+							- }
+								
+					td
+						.scan-results.scan-results-waiting
+							|Режим ожидания…
+
+					td 
+						- var status = 'waiting'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//- row4
+				tr
+					td 4-HKKJ
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td
+						.userpics
+							- for (var i=0; i<4; i++) {
+								- var userpicItem = {size:'s', src: '../assets/images/temp/userpic.jpg',  mark: 'approved'}
+								include ../../components/Desktop/userpic/userpic
+							- }
+								
+					td
+						.scan-results
+							- 
+								var scanResults = [
+									{label:'Жалоб нет', approved: true},
+									{label:'АД', approved_value: '108/75 - 139/88', value: '120/80', approved: false},
+									{label:'Промилле', approved_value: 'до 0,35%', value: '0,2', approved: true},
+									{label:'Температура', approved_value: '35,8 - 37,6°C', value: '37,8', approved: false}
+								]
+							each scanValue, scanIdx in scanResults
+								- var scanresItem = scanValue
+								include ../../components/Desktop/scanResult/scanResult
+
+					td 
+						.checkup-summary
+							- var status = 'checkup_failed'
+							include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+				//- row5
+				tr
+					td 5-HKKJ
+					td 16.01.2020
+					td 08:00
+					td 08:05
+					td Прокофьева Ольга Васильевна
+					td
+						.userpics
+							- for (var i=0; i<4; i++) {
+								- var userpicItem = {size:'s', src: '../assets/images/temp/userpic.jpg',  mark: 'approved'}
+								include ../../components/Desktop/userpic/userpic
+							- }
+								
+					td
+						.scan-results
+							- 
+								var scanResults = [
+									{label:'Жалоб нет', approved: true},
+									{label:'АД', approved_value: '108/75 - 139/88', value: '120/80', approved: true},
+									{label:'Промилле', approved_value: 'до 0,35%', value: '0,2', approved: true},
+									{label:'Температура', approved_value: '35,8 - 37,6°C', value: '37,8', approved: false}
+								]
+							each scanValue, scanIdx in scanResults
+								- var scanresItem = scanValue
+								include ../../components/Desktop/scanResult/scanResult
+
+					td 
+						- var status = 'checkup_passed'
+						include ../../components/Desktop/status/status
+
+					td.button__container
+						- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+						include ../../components/UI/button/button
+
+
+block append bodyScripts
+	script.
+		$(document).ready(function() {
+			initTable({
+				table_id:'terminals',
+				excludeLast: true
+			});
+		});

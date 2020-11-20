@@ -1,0 +1,38 @@
+.hamburger {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+	margin: 0;
+	outline: none;
+	padding:5px 2px;
+	&:focus {
+		border: 0;
+		outline: none;
+	}
+	&-inner {
+		span,
+		&::before,
+		&::after {
+			display: block;
+			height: 2px;
+			margin: 3px 0;
+			background-color: $c_humburger;
+			border-radius: 4px;
+			transition: width .15s ease;
+		}
+		span {
+			width: 70%;
+		}
+		&:after,
+		&:before {
+			width: 20px;
+			content: "";
+		}
+	}
+	&:hover {
+		.hamburger-inner span{
+			width: 100%;
+		}
+	}
+}

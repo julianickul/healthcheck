@@ -1,0 +1,6 @@
+extends ../../components/UI/page/page.pug
+block pageSettings
+	- var sidebarMenuArr = [{text:'Главная', anchor:'home', img: 'ic-home', active: true}];
+	
+block pageContent
+	include ../../components/Desktop/userCheckup/userCheckup

@@ -1,0 +1,36 @@
+html {
+	scroll-behavior: smooth;
+}
+body {
+	background: $c_background;
+	color:$c_text;
+	font:15px/1.2 $base_font;
+	font-weight: normal;
+}
+body, .wrapper {
+	min-height: 100vh;
+}
+h1 {
+	font-size: 36px;
+	font-weight: normal;
+	line-height: 0.83;
+	color: $color-blue03;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+ul, ol, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+a {
+	color:$c_link;
+	text-decoration: none;
+	&:hover {
+		color:$c_link-hover;
+		text-decoration: none;
+	}
+}

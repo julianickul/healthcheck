@@ -1,0 +1,29 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageSettings
+	-
+		var stateItems = [
+			{type: 'work-begin', label:'Начало предыдущей смены', value: '23.11.2018, 13:16'},
+			{type: 'work-finish', label:'Окончание предыдущей смены', value: '-'},
+			{type: 'wating', label:'Ожидается', value: '-'},
+			{type: 'checked', label:'Проверено', value: '100'},
+			{type: 'check-finished', label:'Пройдено осмотров', value: '101'},
+			{type: 'passed', label:'Допущено', value: '100'},
+			{type: 'failed', label:'Не допущено', value: '1'},
+			{type: 'terminal', label:'Терминал', value: '238KIO'},
+			{type: 'date', label:'Дата', value: '20.01.20'}
+		]
+
+block pageContent
+	.content
+		h1 Компонент State
+		br
+		br
+		each val, idx in stateItems
+			- var stateItem = val
+			include ../../components/Desktop/state/state
+		
+		

@@ -1,0 +1,57 @@
+block tableSettings
+-
+	if (tableItem === undefined)
+		var tableItem = {
+			id: 'table_id'
+		}
+	if (tableLabels === undefined)
+		var tableLabels = [
+			'Терминал',
+			'Дата',
+			'Начало осмотра',
+			'Окончание осмотра',
+			'ФИО',
+			'Фотографии',
+			'Результаты осмотра',
+			'Итог / статус',
+			'' //button
+		]
+
+	if (tableValues === undefined) 
+		var tableValues = [
+			[
+				'1-HKKJ',
+				'16.01.2020',
+				'08:00',
+				'08:05',
+				'Прокофьева Ольга Васильевна',
+				'',
+				'',
+				'',
+				''
+			]
+		]
+	
+	var statusIndex = undefined
+
+table.table(id=tableItem.id)
+	thead
+		tr
+			each labelVal, labelIdx in tableLabels
+				th= labelVal
+				- if (labelVal === 'Cтатус') statusIndex = labelIdx
+
+	tbody
+		each rowValue, rowIdx in tableValues
+			tr
+				each cellValue, cellIdx in rowValue
+					if (statusIndex !== undefined && statusIndex === cellIdx)
+						td
+							- var status = cellValue
+							include ../status/status
+					else if (cellValue === '' && cellIdx === (rowValue.length - 1))
+						td.button__container
+							- var buttonArr = {text: 'Просмотр', style:'primary btn-vertical', type: 'button', innerContainer: true}
+							include ../../../components/UI/button/button
+					else
+						td !{cellValue}

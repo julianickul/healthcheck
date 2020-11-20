@@ -1,0 +1,44 @@
+.device__icon {
+	@include sprite-common-rules($size:cover);
+	height: 79px;
+}
+.icon-tonometr {
+	@include sprite('ic-tonometer');
+	width: 44px;
+}
+.icon-alkotester {
+	@include sprite('ic-alcotest');
+	width: 47px;
+}
+.icon-termometr {
+	@include sprite('ic-thermometer');
+	width: 47px;
+}
+.icon-camera {
+	@include sprite('ic-camera');
+	width: 66px;
+}
+.icon-monitor {
+	@include sprite('ic-display');
+	width: 73px;
+}
+.icon-thermoprinter {
+	@include sprite('ic-printer');
+	width: 74px;
+}
+.icon-cardreader {
+	@include sprite('ic-reader');
+	width: 50px;
+}
+.icon-ups {
+	@include sprite('ic-power');
+	width: 54px;
+}
+.icon-nettop {
+	@include sprite('ic-nettop');
+	width: 77px;
+}
+.icon-usbhub {
+	@include sprite('ic-usb');
+	width: 68px;
+}

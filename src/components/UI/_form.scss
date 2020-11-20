@@ -1,0 +1,140 @@
+/* redefine bootstrap buttons > */
+.btn {
+    /*font-size: 0.875rem;
+    padding: 0.345rem 0.935rem;*/
+    white-space: nowrap;
+    padding: 0.45rem 0.935rem 0.5rem;
+}
+.btn-primary {
+    box-shadow: 0 2px 10px 0 $c_shadow_btn-primary;
+}
+.btn-success {
+    box-shadow: 0 2px 10px 0 $c_shadow_btn-success;
+}
+.btn-danger {
+    box-shadow: 0 2px 10px 0 $c_shadow_btn-danger;
+}
+.btn-light {
+    color: $c_btn_color_light;
+    /*font-size: 12px;*/
+    /*padding: .375rem .935rem;*/
+}
+/*.btn-flat-green,
+.btn-flat-red {
+    font-size: 15px;
+    line-height: 1.93;
+    padding: .32rem 1.435rem;
+}*/
+.btn-flat-green {
+    color:$c_btn-flat-green;
+    &:hover {
+        color:$c_btn-flat-green;
+    }
+}
+.btn-flat-red {
+    color:$c_btn_flat-red;
+    &:hover {
+        color:$c_btn_flat-red;
+    }
+}
+/* redefine bootstrap buttons < */
+
+.form {
+    label {
+        font-weight: 500;
+        color:$color-gray01;
+    }
+}
+
+.form__title {
+	font-size: 1.31rem;
+	line-height: 1.43;
+	text-align: center;
+	color: $c_form_title;
+	margin-bottom: 2.5rem;
+}
+.form-legend {
+    font-size: 24px;
+    color: #475f7b;
+    margin-bottom: 25px;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    &.error {
+        .form-control  {
+            border: solid 1px #ff1146;
+            &:focus {
+                + .form-control__icon {
+                    svg {
+                        fill: #ff1146;
+                        fill-opacity: 1;
+                    }
+                }
+            }
+        }
+        .form-control__icon {
+            svg {
+                fill:#ff1146;
+                fill-opacity: 1;
+            }
+        }
+    }
+}
+.form-inline .form-group {
+    margin-bottom: 0;
+}
+/* form control -> input */
+.form-control__wrapper {
+    position: relative;
+}
+.form-control {
+    color:$c_form_input_text;
+    border: solid 1px rgba(11, 43, 92, 0.32);
+    &:focus {
+        box-shadow: none;
+        border-color:$c_form_input_border;
+        + .form-control__icon {
+            svg {
+				fill: $c_form_input_border;
+				fill-opacity: 1;
+            }
+        }
+    }
+    &.has-icon {
+        padding-right: 30px;
+    }
+}
+.form-control__icon {
+    position: absolute;
+    right: 9px;
+    top:50%;
+    margin-top: -11px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    svg {
+        width: 18px;
+        height: 18px;
+		fill:rgb(11,43,92);
+		fill-opacity: .36;
+    }
+}
+.form-control__tootlip {
+    position: absolute;
+    font-size: 14px;
+    line-height: 1.29;
+    color: #ff1146;
+    left: 8px;
+    padding-top: 3px;
+}
+/* << form control -> input */
+
+/* form control -> button >> */
+.btn-group_align-center {
+	text-align: center;
+}
+.btn-group_align-right {
+    text-align: right;
+}
+/* form control -> button << */

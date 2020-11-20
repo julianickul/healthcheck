@@ -1,0 +1,24 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageSettings
+	-
+		var userpicItems = [
+			{src: '../assets/images/temp/userpic.jpg'},
+			{mark: 'approved'},
+			{mark: 'refused'}
+		]
+
+block pageContent
+	.content
+		h1 фото
+
+		each sizeVal, sizeIdx in ['s', 'm', 'l', 'xl']
+			br
+			br
+			-var size = {size: sizeVal}
+			each val, idx in userpicItems
+				- var userpicItem = Object.assign(val, size);
+				include ../../components/Desktop/userpic/userpic

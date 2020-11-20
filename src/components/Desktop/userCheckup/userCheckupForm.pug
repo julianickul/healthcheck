@@ -1,0 +1,8 @@
+.user-checkup__form
+	form.form.form-inline(action="?")
+		- var inputArr = {label: false, placeholder:'Номер пропуска', type:'text', id:'access_id', size: 'lg'}
+		include ../../UI/input/input
+		- var buttonArr = {text: 'Проверить', style:'primary', type: 'submit', size: 'lg'}
+		include ../../UI/button/button
+		- var buttonArr = {text: 'Сбросить', style:'light', type: 'submit', size: 'lg'}
+		include ../../UI/button/button

@@ -1,0 +1,27 @@
+.icon-work-begin {
+	@include sprite('ic-begin');
+}
+.icon-work-finish {
+	@include sprite('ic-end');
+}
+.icon-wating {
+	@include sprite('ic-wait-check');
+}
+.icon-checked {
+	@include sprite('ic-user-check');
+}
+.icon-check-finished {
+	@include sprite('ic-tonometr-check');
+}
+.icon-passed {
+	@include sprite('ic-check');
+}
+.icon-failed {
+	@include sprite('ic-close');
+}
+.icon-terminal {
+	@include sprite('ic-terminal');
+}
+.icon-date {
+	@include sprite('ic-date');
+}

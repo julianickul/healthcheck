@@ -1,0 +1,43 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	- var buttonArr = {text: 'Начать смену', style:'primary', type: 'submit'}
+	
+block pageContent
+	.content
+		.workshift
+			.workshift__header
+				h1 Тверь
+				include ../../components/UI/button/button
+			
+			.alert.alert-primary(role="alert") 
+				span.icon.icon-info i
+				span Новая смена еще не началась
+
+			
+			.workshift__list
+				.row
+					.col-12.col-lg-4.col-xl-3
+						- var stateItem = {type: 'work-begin', label:'Начало предыдущей смены', value: '23.11.2018, 13:16'}
+						include ../../components/Desktop/state/state
+						
+						- var stateItem = {type: 'work-finish', label:'Окончание предыдущей смены', value: '-'}
+						include ../../components/Desktop/state/state
+
+					.col-12.col-lg-4.col-xl-3
+						- var stateItem = {type: 'wating', label:'Ожидается', value: '-'}
+						include ../../components/Desktop/state/state
+
+						- var stateItem = {type: 'checked', label:'Проверено', value: '100'}
+						include ../../components/Desktop/state/state
+						
+						- var stateItem = {type: 'check-finished', label:'Пройдено осмотров', value: '101'}
+						include ../../components/Desktop/state/state
+		
+					.col-12.col-lg-4.col-xl-3
+						- var stateItem = {type: 'passed', label:'Допущено', value: '100'}
+						include ../../components/Desktop/state/state
+
+						- var stateItem = {type: 'failed', label:'Не допущено', value: '1'}
+						include ../../components/Desktop/state/state
+				

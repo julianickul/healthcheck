@@ -1,0 +1,16 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			img: 'img-thermometer',
+			title:'Термометр и алкотестер',
+			text: 'Прислоните голову к аппарату и выдыхайте в воронку 3-5 сек. до звукового сигнала.',
+			type: 'info'
+		}
+		var progressBarItem = {size:'75%'};
+
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

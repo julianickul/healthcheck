@@ -1,0 +1,60 @@
+block terminalControlSettings
+-
+	var inputs = [
+			{
+				label: false,
+				placeholder:'Адрес',
+				type:'text',
+				id:'address',
+				icon:'ic-edit',
+				addClass:'form-group_size-short'
+			},
+			{
+				label: false,
+				placeholder:'Название',
+				type:'text',
+				id:'name',
+				icon:'ic-edit',
+				addClass:'form-group_size-short'
+			},
+			{
+				label: false,
+				placeholder:'Примечание',
+				type:'text',
+				id:'note',
+				validationTip:'Обязательное поле',
+				icon:'ic-edit',
+				addClass:'form-group_size-wide'
+			}
+		];
+	var buttons = [
+			{text: 'На обслуживание', style:'primary', type: 'button'},
+			{text: 'Сохранить', style:'success', type: 'button'},
+			{text: 'Удалить', style:'danger', type: 'button'}
+		];
+	var deviceItemStatus = 'enabled';
+	var deviceStatus = {
+			'enabled' : {label: 'Работает', className: 'device__status-enabled'},
+			'disabled' : {label: 'Не работает', className: 'device__status-disabled'},
+			'unavailable': {label: 'Временно недоступен', className: 'device__status-unavailable'}
+		}
+	var status = 'enabled';
+
+.terminal__control
+	.terminal__ico
+		+sprite-mix('ic-terminal')
+	.terminal__form
+		.terminal__title Терминал
+		form.form(action="?")
+			.form-group-row
+				each val, index in inputs
+					- var inputArr = val
+					include ../../UI/input/input
+			
+			.btn-group
+				each val, index in buttons
+					- var buttonArr = val
+					include ../../UI/button/button
+		
+		include ../status/status
+

@@ -1,0 +1,15 @@
+block breadcrumbsSettings
+- if (breadcrumbsArr === undefined) { var breadcrumbsArr = []; }
+
+nav(aria-label="breadcrumb")
+    ul.breadcrumb
+        - if (breadcrumbsArr.length > 0) {
+            - for (var i = 0; i < breadcrumbsArr.length; i++) {
+                - if (breadcrumbsArr[i].last) {
+                    li.breadcrumb-item.active(aria-current="page")= breadcrumbsArr[i].text
+                - } else {
+                    li.breadcrumb-item
+                        a(href='#')= breadcrumbsArr[i].text
+                - }
+            - }
+        - }

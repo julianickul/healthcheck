@@ -1,0 +1,17 @@
+//Vendors
+@import '../../components/Terminal/_custom_bootstrap';
+//UI KIT
+@import '../../components/UI/_mixins';
+@import '../../components/UI/_fonts';
+@import '../../components/Terminal/_variables';
+@import '../../components/UI/_layout';
+
+//Layout blocks
+@import '../../components/UI/_form';
+@import '../../components/UI/button/button';
+@import '../../components/UI/input/input';
+
+
+// final redefine base styles
+@import '../../components/Terminal/pageTerminal/pageTerminal';
+@import '../../components/Terminal/_form';

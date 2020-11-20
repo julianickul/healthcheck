@@ -1,0 +1,23 @@
+.document__item {
+	font-size: 18px;
+	line-height: 1.44;
+	color: $c_document_text;
+	position: relative;
+	margin-bottom: 24px;
+	padding: 0 0 0 46px;
+	&:before {
+		content: '';
+		@include sprite-common-rules;
+		@include sprite('ic-link');
+		width: 32px;
+		height: 32px;
+		display: inline-block;
+		vertical-align: middle;
+		position: absolute;
+		left: 0;
+		top:-2px;
+	}
+	a {
+		text-decoration: underline;
+	}
+}

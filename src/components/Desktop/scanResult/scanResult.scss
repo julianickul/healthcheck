@@ -1,0 +1,131 @@
+.scan-result__item {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 8px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	&.scan-result_approved {
+		.scan-result__value {
+			color: $c_scanres_approved;
+		}
+	}
+	&.scan-result_refused {
+		.scan-result__value {
+			color: $c_scanres_refused;
+		}
+	}
+	.scan-result__value {
+		font-size: 14px;
+		line-height: 1.5;
+		.form-group {
+			display: inline-block;
+			width: 80px;
+			margin-bottom: 0;
+			&.isHidden {
+				display: none;
+			}
+		}
+	}
+	.scan-result__label,
+	.scan-result__norm {
+		font-size: 12px;
+	}
+	.scan-result__label {
+		margin-right: 10px;
+	}
+	.scan-result__norm {
+		order:1;
+		width: 100%;
+	}
+}
+.isHidden {
+	display: none;
+}
+
+.queue__checkup{
+	.scan-result__item {
+		margin-bottom: 23px;
+		&.scan-result_approved,
+		&.scan-result_refused {
+			&:before {
+				width: 32px;
+				height: 32px;
+				display: inline-block;
+				margin-right: 14px;
+				vertical-align: middle;
+				content: '';
+				@include sprite-common-rules;
+				background-size: contain;
+			}
+		}
+		&.scan-result_approved {
+			&:before {
+				@include sprite('ic-check');
+			}
+		}
+		&.scan-result_refused {
+			&:before {
+				@include sprite('ic-close');
+			}
+		}
+		.scan-result__label {
+			font-size: 21px;
+			line-height: 35px;
+			color: $c_scanres;
+			white-space: nowrap;
+			margin-right: 12px;
+		}
+		.scan-result__norm {
+			font-size: 12px;
+			line-height: 24px;
+			color: $c_scanres_approved_val;
+			order:0;
+			align-self: flex-end;
+			margin-right: 20px;
+			width: auto;
+		}
+		.scan-result__value {
+			white-space: nowrap;
+			margin-left: auto;
+			font-size: 22px;
+			font-weight: 500;
+			line-height: 0.88;
+			text-align: right;
+		}
+		.scan-result__ico {
+			margin-left: 15px;
+			display:inline-block;
+			svg {
+				fill: #11448f;
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				cursor: pointer;
+				opacity: 1;
+				transition: opacity .2s linear;
+			}
+			&:hover {
+				svg {
+					opacity: .6;
+				}
+			}
+		}
+		/*.scan-result__view {
+			display: block;
+		}
+		.scan-result__edit {
+			display: none;
+		}*/
+	}
+}
+.scan-results {
+	line-height: 20px;
+	&.scan-results-process {
+		color: $c_device_status_processing;
+	}
+	&.scan-results-waiting {
+		color: $c_device_status_waiting;
+	}
+}

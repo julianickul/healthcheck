@@ -1,0 +1,141 @@
+@import '_color_palette';
+
+/* Default Color Definition */
+$c_background			: $color-lightgray01;
+$c_bg-content			: $color-white;
+$c_text					: $color-darkgray01;
+$c_link					: $color-blue01;
+$c_link-hover			: $color-darkgray01;
+$shadow-content			: 0 8px 16px 0 $color-lightgray06;
+
+/* Fonts */
+$base_font				: 'Muller', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$secondary_font			: 'Rubik', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+/* Other */
+$border-radius				:24px;
+
+/**********************************************************************************/
+
+/* Footer */
+$c_footer-text			: $color-lightgray02;
+
+/* Header */
+$c_humburger			: $color-darkgray01;
+$c_usermenu-name		: $color-blue01;
+$c_usermenu-role		: $color-gray01;
+$bg_user-menu-dropdown	: $color-white;
+$shadow_user-menu		: 0 0 32px 0 $color-lightgray06;
+
+/* Sidebar */
+$c_logo					: $color-darkgray01;
+$c_sidebar-text			: $color-darkgray01;
+$border_sidebar-active	: $color-lightgray04;
+$bg_sidebar-active		: $color-lightgray01;
+$bg_sidebar-submenu-active: $color-lightgray05;
+
+/* Main */
+
+/* -- alert -- */
+$border_alert_icon		: $color-gray01;
+
+/* -- badge -- */
+$c_badge-fail			: $color_red;
+$bg_badge-fail			: $color_red_light;
+$c_badge-success		: $color_green;
+$bg_badge-success		: $color_green_light;
+
+/* -- breadcrumbs -- */
+$c_breadcrumbs_item		: $color-gray01;
+$breadcrumb-active-color : $color-darkgray01; /* Bootstrap constant */
+
+/* -- Buttons -- */
+$bg_btn-primary			: $color-blue04;
+$bg_btn-success			: $color-green02;
+$bg_btn-danger			: $color-red02;
+$bg_btn-light			: $color-lightgray03;
+$c_shadow_btn-primary		: rgba(17, 68, 143, 0.44);
+$c_shadow_btn-success		: rgba(34, 190, 118, 0.44);
+$c_shadow_btn-danger		: rgba(255, 17, 70, 0.44);
+$c_btn-flat-green			: $color-green;
+$c_btn_flat-red				: $color-red;
+$c_btn_color_light			: $color-blue01;
+
+/* -- Inputs -- */
+
+/* Datepicker */
+$bg_datepicker-dropdown: $color-white;
+$shadow_dropdown		: $shadow_user-menu;
+$c_datepicker-weekend	: $color-red;
+$c_datepicker-active-bg	: $color-blue01;
+$c_datepicker-active-text: $color-white;
+$c_datepicker-today-bg	: $color-green;
+$c_datepicker-selected-bg: rgba(72, 141, 255, 0.1);
+$c_datepicker-text		: $color-blue01;
+$c_datepicker-switcher_text: $color-blue01;
+$c_datepicker-month-name: $color-blue03;
+
+
+
+
+
+$c_device				: $color-blue02;
+$c_device_cycle_label	: $color-gray01;
+$c_device_status_enabled: $color-green;
+$c_device_status_disabled	: $color-red;
+$c_device_status_unavailable: $color-yellow;
+$c_device_status_processing: $color-blue01;
+$c_device_status_waiting: rgba(71, 95, 123, 0.5);
+
+$c_document_text			: $color-blue01;
+
+$c_stat_label				: $color-gray01;
+$c_stat_text				: $color-blue03;
+
+$c_scanres					: $color-blue03;
+$c_scanres_approved_val		: $color-gray01;
+$c_scanres_approved			: $color-green;
+$c_scanres_refused			: $color-red;
+
+$c_form_title				: $color-blue03;
+$c_form_input_text			: $color-darkgray01;
+$c_form_input_border		: $color-blue01;
+
+
+
+
+
+/* Colors for USER */
+$U_c_user_data_label		: $color-gray01;
+$U_c_user_data_value		: $color-darkgray01;
+
+
+/* colors for terminal > */
+$c_terminal_title			: $color-gray01;
+$c_terminal					: $color-darkgray01;
+
+$T_c_header					: $color-darkgray01;
+$T_c_placeholder			: rgba(48, 48, 48, 0.7);
+$T_c_label					: #12448d;
+$T_c_form_control			: #000;
+
+
+/* video player */
+$c_video_player				: $color-blue01;
+
+/* table */
+$c_table_row_selected 		: rgba(17, 68, 143, 0.06);
+
+
+
+
+/*********************/
+/*$desktopWidth_xl		: 1920px;
+$desktopWidth_l			: 1600px;
+$desktopWidth			: 1280px; //1200px;
+$DesktopWidth_sm		: 1024px; //992px;
+$tableWidth				: 768px;
+$TableWidth_sm			: 640px;
+$phoneWidth				: 480px;
+$PhoneWidth_sm			: 320px;
+*/

@@ -1,0 +1,37 @@
+block tabSettings
+-	
+	if (tabItems === undefined)
+		var tabItems = [
+			{id: 'checkup_tab',  href: 'checkup', label:'Осмотр', isActive: true},
+			{id: 'video_tab',  href: 'video', label:'Видео', isActive: false},
+			{id: 'sign_tab',  href: 'sign', label:'Подпись', isActive: false},
+			{id: 'card_tab',  href: 'card', label:'Карточка сотрудника', isActive: false},
+			{id: 'history_tab',  href: 'history', label:'История', isActive: false},
+			{id: 'docs_tab',  href: 'docs', label:'Документы', isActive: false}
+		]
+
+.tab-container
+	.tab__nav
+		.nav.flex-column.nav-pills(id="tablist", role="tablist", aria-orientation="vertical")
+			each headVal, headIdx in tabItems
+				- var headCls = 'tab__nav-link nav-link' + (headVal.isActive ? ' active': '')
+				a(class=headCls id=headVal.id data-toggle="pill" href="#" + headVal.href role="tab" aria-controls=headVal.href, aria-selected="true")= headVal.label
+
+	.tab-content
+		each bodyVal, bodyIdx in tabItems
+			- var bodyCls = 'tab-pane fade' + (bodyVal.isActive ? ' active show': '')
+			div(class=bodyCls id=bodyVal.href role="tabpanel" aria-labelledby=bodyVal.id)
+				- var template = bodyVal.href
+					case template
+						when 'checkup'
+							include ../queue/queue_checkup
+						when 'video'
+							include ../queue/queue_video
+						when 'sign'
+							| Подпись
+						when 'card'
+							include ../queue/queue_userCard
+						when 'history'
+							include ../queue/queue_history
+						when 'docs'
+							include ../queue/queue_documentsList

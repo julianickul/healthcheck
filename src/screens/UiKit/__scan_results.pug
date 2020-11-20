@@ -1,0 +1,22 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageSettings
+	-
+		var scanresItems = [
+			{label:'Жалоб нет', approved: true},
+			{label:'АД', approved_value: '108/75 - 139/88', value: '120/80', approved: true},
+			{label:'Промилле', approved_value: 'до 0,35%', value: '0,2', approved: true},
+			{label:'Температура', approved_value: '35,8 - 37,6°C', value: '37,8', approved: false}
+		]
+
+block pageContent
+	.content
+		h1 Результаты сканирования
+		
+		
+		each val, idx in scanresItems
+			- var scanresItem = val
+			include ../../components/Desktop/scanResult/scanResult

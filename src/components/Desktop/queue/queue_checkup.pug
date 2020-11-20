@@ -1,0 +1,46 @@
+block queueCheckupSettings
+	- 
+		var userpicItem = {size:'m', src: '../assets/images/temp/userpic.jpg'};
+
+		var checkupSteps = [
+			{stepName: '«Аутентификация»'},
+			{stepName: '«АД»'},
+			{stepName: '«Промилле»'}
+		]
+
+		var scanResults = [
+			{label:'Жалоб нет', approved: true, editable: true},
+			{label:'АД', approved_value: '108/75 - 139/88', value: '120/80', approved: true, editable: true},
+			{label:'Промилле', approved_value: 'до 0,35%', value: '0,2', approved: true, editable: true},
+			{label:'Температура', approved_value: '35,8 - 37,6°C', value: '37,8', approved: false, editable: true}
+		]
+
+//div= JSON.stringify(scanResAccess)
+.queue__checkup
+	.queue__checkup-steps
+		.col-left
+			include ./queue_checkup_step
+			dl.queue__checkup-step__title
+				dt Прокофьева Ольга Васильевна
+				dd программист
+		.col-right
+			each val, index in checkupSteps
+				- var checkupStepItem = val
+				include ./queue_checkup_step
+	
+	.queue__checkup-summary
+		.col-left
+			h2 Результаты осмотра
+			.scan-results.queue__checkup-scan-results
+				each scanValue, scanIdx in scanResults
+					- var scanresItem = scanValue
+					include ../scanResult/scanResult
+
+		.col-right
+			h2 Итог
+			.queue__checkup-access
+				- var scanresItem = scanResAccess;
+				include ../scanResult/scanResult
+				.queue__checkup-summary__result= scanresItem.accessSummary
+
+			include ./queue_sign_controls

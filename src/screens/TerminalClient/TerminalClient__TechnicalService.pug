@@ -1,0 +1,15 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			img: 'img-engineering-works',
+			title:'Ведутся технические работы',
+			text: 'Система временно недоступна',
+			type: 'info'
+		}
+
+block pageContent
+	.content
+		//include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

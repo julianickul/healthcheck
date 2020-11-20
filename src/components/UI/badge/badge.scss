@@ -1,0 +1,29 @@
+.badge {
+	border-radius: 50%;
+	width:24px;
+	height: 24px;
+	text-align: center;
+	display: block;
+	font: 500 13px/2 $secondary_font;
+	position: absolute;
+	right: 40px;
+	top:50%;
+	margin-top: -12px;
+	transition: right .3s linear, left .3s linear;
+	
+	&.bagde_type-fail {
+		color: $c_badge-fail;
+		background-color: $bg_badge-fail;
+	}
+	&.bagde_type-success {
+		color: $c_badge-success;
+		background-color: $bg_badge-success;
+	}
+}
+.page_view-compact {
+	.badge {
+		left: 38px;
+		right: auto;
+		margin-top: -18px;
+	}
+}

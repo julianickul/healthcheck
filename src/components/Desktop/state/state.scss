@@ -1,0 +1,24 @@
+@import './state__icons';
+
+.state__item {
+	display: flex;
+	align-items: flex-start;
+	.state__icon {
+		margin-right: 25px;
+		@include sprite-common-rules();
+		width: 60px;
+		min-width: 60px;
+		height: 60px;
+	}
+	.state__label {
+		font-size: 15px;
+		font-weight: 500;
+		line-height: 1.4;
+		color: $c_stat_label;
+	}
+	.state__value {
+		font-size: 24px;
+		line-height: 1.25;
+		color: $c_stat_text;
+	}
+}

@@ -1,0 +1,55 @@
+block dialogSettings
+	-
+		if (dialogItem === undefined) { 
+			var dialogItem = {
+				img: '#',
+				title:'Dialog title',
+				text: 'Dialog text',
+				type: 'info',
+				buttons: [{text:'Повторить', style: 'primary'}]
+			}
+		}
+		
+		//-var dialogType = ['personality', 'info', processing', 'results'];
+
+		if (dialogItem.img) {
+			var img = '../assets/images/' + dialogItem.img +'.png';
+			var srcset = '../assets/images/' + dialogItem.img + '@2x.png 2x,' + img +' 1x';
+		}
+
+		var dialogCls = 'dialog';
+		if (dialogItem.type === 'processing' || dialogItem.type === 'measuring') dialogCls = dialogCls + ' dialog-processing';
+		if (dialogItem.type === 'results') dialogCls = dialogCls + ' dialog-results';
+
+div(class= dialogCls)
+	if (dialogItem.img)
+		.dialog__img
+			picture
+				img(src=img alt=dialogItem.title srcset=srcset)
+			
+	if (dialogItem.title)
+		.dialog__title= dialogItem.title
+	
+	if (dialogItem.text)
+		.dialog__text !{dialogItem.text}
+	
+	if (dialogItem.type === 'personality')
+		.dialog__personality
+			.dialog__personality-img
+			.dialog__personality-name Иванов Иван Иванович
+	
+	if (dialogItem.buttons)
+		.btn-group.btn-group_align-center
+			each val, index in dialogItem.buttons
+				- var buttonArr = {text: val.text, style: val.style, type: 'submit'}
+				include ../../UI/button/button
+
+	if (dialogItem.type === 'processing')
+		include ../spinner/spinner.pug
+	
+	if (dialogItem.type === 'measuring')
+		.measuring-animation
+			img(src='../assets/images/Heart-beat.gif')
+	
+	if (dialogItem.type === 'results')
+		include ../checkup/checkup.pug

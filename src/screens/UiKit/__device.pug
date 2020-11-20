@@ -1,0 +1,28 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageSettings
+	-
+		var deviceItems = [
+			{type: 'tonometr', serial: 'AnD TM-2655P', status: 'enabled', cycles: '10/20', button: true},
+			{type: 'alkotester', serial: 'AnD TM-2655P', status: 'disabled', cycles: '5/25', button: true},
+			{type: 'termometr', serial: 'BERRCOM JXB-183', status: 'unavailable', cycles: '10/20', button: true},
+			{type: 'camera', serial: 'Logitech HD C270', status: 'enabled', cycles: false, button: false},
+			{type: 'monitor', serial: 'TS1716L-6C-A', status: 'enabled', cycles: false, button: false},
+			{type: 'thermoprinter', serial: 'Custom TG 2480', status: 'enabled', cycles: false, button: false},
+			{type: 'cardreader', serial: 'Smartec ST-CE011EM', status: 'enabled', cycles: false, button: false},
+			{type: 'ups', serial: 'APC Back-UPS 650VA', status: 'enabled', cycles: false, button: false},
+			{type: 'nettop', serial: 'АТОЛ Т200 Celeron J1900,4 Гб', status: 'enabled', cycles: false, button: false},
+			{type: 'usbhub', serial: 'BURO BU-HUB4-0.2-U3.0', status: 'enabled', cycles: false, button: false}
+		]
+
+block pageContent
+	.content
+		h1 Устройства
+		br
+		div(style="display:flex; flex-wrap:wrap;")
+			each val, idx in deviceItems
+				- var deviceItem = val
+				include ../../components/Desktop/device/device

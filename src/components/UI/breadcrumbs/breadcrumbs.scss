@@ -1,0 +1,14 @@
+.breadcrumb {
+	font-size: 18px;
+	padding: 0;
+	margin-bottom: 44px;
+	a {
+		color: $c_breadcrumbs_item;
+	}
+}
+.breadcrumb-item {
+	&.active {
+		color: $breadcrumb-active-color;
+		font-weight: normal;
+	}
+}

@@ -1,0 +1,27 @@
+@import './_view-auth';
+@import './_view-compact';
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+}
+.content {
+	background: $c_bg-content;
+	border-radius: $border-radius;
+	box-shadow: $shadow-content;
+	flex-grow:1;
+	margin-right:32px;
+	padding: 32px;
+}
+.svg-icons {
+	display: none;
+}
+.page {
+	flex-grow:1;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 100;
+	margin-left: 284px;
+	transition: margin-left 0.3s linear;
+}

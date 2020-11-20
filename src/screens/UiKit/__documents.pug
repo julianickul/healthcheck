@@ -1,0 +1,11 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageContent
+	.content
+		h1 Документы
+		br
+		br
+		include ../../components/Desktop/queue/queue_documentsList

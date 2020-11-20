@@ -1,0 +1,34 @@
+block checkupSettings
+-
+	var checkupResults = [
+		{
+			type : 'blood-preasure',
+			value : '100/70',
+			approved : true,
+			icon: 'ic-arterial-pressure'
+		},
+		{
+			type : 'alcohol',
+			value : '0,1',
+			approved : true,
+			icon: 'ic-ethanol'
+		},
+		{
+			type : 'temperature',
+			value : '37.4',
+			approved : false,
+			icon: 'ic-temperature'
+		}
+	]
+
+.checkup
+	.checkup__result
+		each val, index in checkupResults
+			- var checkupResultItem = val
+			include ../../Terminal/checkupResult/checkupResult
+
+	.checkup__signature
+		.checkup__signature-box
+		- var buttonArr = {text: 'Далее', style: 'primary', type: 'submit'}
+			.btn-group.btn-group_align-right
+				include ../../UI/button/button

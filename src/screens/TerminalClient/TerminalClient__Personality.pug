@@ -1,0 +1,19 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			title:'Подтверждение личности',
+			text: 'Подтвердите свою личность, выбрав<br/>правильный вариант.',
+			type: 'personality',
+			buttons: [
+				{text:'Нет, это не я', style: 'outline-primary'},
+				{text:'Да, это я', style: 'primary'}
+			]
+		}
+		var progressBarItem = {size:'50%'};
+
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

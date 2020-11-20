@@ -1,0 +1,138 @@
+extends ../components/UI/page/page.pug
+block headStyles
+	link(href="./Desktop/styles.css", rel="stylesheet")
+
+block userSettings
+	-
+		var user = {
+			name: 'Смирнова Н.В.',
+			role: 'Дежурный врач',
+			img: './assets/images/temp/userpic.jpg'
+		}
+
+block pageContent
+	.content
+		.row
+			.col
+				h1 Desktop
+				br
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./Desktop/Authorization.html") Авторизация
+				br
+
+				h2 Админ
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./Desktop/Admin_index.html") Администратор / Главная
+					li
+						a(href="./Desktop/Admin_terminal.html") Администратор / Настройки терминала
+				br
+
+				h2 Доктор
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./Desktop/Doctor_smena.html") Дежурный врач / Смена
+					li
+						a(href="./Desktop/Doctor_terminals.html") Дежурный врач / Терминалы
+					li
+						a(href="./Desktop/Doctor_archive.html") Архив
+					li
+						a(href="./Desktop/Doctor_queue_approved.html") Дежурный врач / Очередь / Осмотр - Допущен к работе
+					li
+						a(href="./Desktop/Doctor_queue_notapproved.html") Дежурный врач / Очередь / Осмотр - Не допущен к работе
+					li
+						a(href="./Desktop/Doctor_queue_video.html") Дежурный врач / Очередь / Видео
+					li
+						a(href="./Desktop/Doctor_queue_usercard.html") Дежурный врач / Очередь / Карточка сотрудника
+					li
+						a(href="./Desktop/Doctor_queue_history.html") Дежурный врач / Очередь / История
+					li
+						a(href="./Desktop/Doctor_queue_docs.html") Дежурный врач / Очередь / Документы
+				br
+				h2 Ламповщик
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./Desktop/User_default.html") Главная / Ламповщик
+					li
+						a(href="./Desktop/User_checkup_accept.html") Главная / Ламповщик / Осмотр пройден
+					li
+						a(href="./Desktop/User_checkup_fail.html") Главная / Ламповщик / Осмотр не пройден
+
+
+			.col
+				h2 Терминал / Административная панель
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./TerminalAdmin/TerminalAdmin__DataInput.html") Ввод данных сети
+				br
+				h2 Терминал / Клиентская панель
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./TerminalClient/TerminalClient__Authorization.html") Авторизация
+					li
+						a(href="./TerminalClient/TerminalClient__BloodPreasure.html") Измерение давления
+					li
+						a(href="./TerminalClient/TerminalClient__ThermoAlko.html") Термометр и алкотестер
+					li
+						a(href="./TerminalClient/TerminalClient__Finish.html") Осмотр завершен
+					li
+						a(href="./TerminalClient/TerminalClient__AccessDenied.html") Доступ запрещен
+					li
+						a(href="./TerminalClient/TerminalClient__TechnicalService.html") Ведутся технические работы
+					li
+						a(href="./TerminalClient/TerminalClient__VisitDoctor.html") Пройдите к врачу
+					li
+						a(href="./TerminalClient/TerminalClient__Error.html") Ошибка осмотра
+					li
+						a(href="./TerminalClient/TerminalClient__HealthComplaints.html") Есть жалобы на здоровье?
+					li
+						a(href="./TerminalClient/TerminalClient__Personality.html") Подтверждение личности
+					li
+						a(href="./TerminalClient/TerminalClient__GetReady.html") Подготовка аппарата к осмотру
+					li
+						a(href="./TerminalClient/TerminalClient__ResultProcessing.html") Обработка результата
+					li
+						a(href="./TerminalClient/TerminalClient__BloodPreasureMeasuring.html") Идет измерение давления
+					li
+						a(href="./TerminalClient/TerminalClient__Results.html") Результаты исследования
+
+
+
+		br
+		hr
+		br
+		.row
+			.col
+				h1 Служебные компоненты / Элементы дизайна
+				br
+				ul(style="font: 18px 'Muller'; font-weight:300;")
+					li
+						a(href="./UiKit/__forms.html") Формы
+					li
+						a(href="./UiKit/__breadcrumbs.html") Breadcrumbs
+					li
+						a(href="./UiKit/__tabs.html") Табы
+					li
+						a(href="./UiKit/__device.html") Устройства
+					li
+						a(href="./UiKit/__documents.html") Документы
+					li
+						a(href="./UiKit/__scan_results.html") Результаты сканирования
+					li
+						a(href="./UiKit/__stat.html") Компонент State
+					li
+						a(href="./UiKit/__status.html") Компонент Status
+					li
+						a(href="./UiKit/__userpic.html") Фото
+					li
+						a(href="./UiKit/__datepicker.html") Datepicker
+
+
+block bodyScripts
+	script(src="./assets/js/vendors/jquery.min.js")
+	script(src="./assets/js/vendors/jquery.dataTables.min.js")
+	script(src="./assets/js/vendors/bootstrap.bundle.min.js")
+	script(src="./assets/js/lib.js")
+	script.
+		initTogglePageView()

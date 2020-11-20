@@ -1,0 +1,46 @@
+block deviceSettings
+	-
+		if (deviceItem === undefined) { 
+			var deviceItem = {
+				type: '',
+				serial: 'ABC-123',
+				status: 'enabled',
+				cycles: '10',
+				button: true
+			}
+		}
+
+		var deviceType = {
+			'tonometr': {icon: 'tonometr', label: 'Тонометр'},
+			'alkotester': {icon: 'alkotester', label: 'Алкотестер'},
+			'termometr': {icon: 'termometr', label: 'Термометр'},
+			'camera': {icon: 'camera', label: 'Камера'},
+			'monitor': {icon: 'monitor', label: 'Монитор'},
+			'thermoprinter': {icon: 'thermoprinter', label: 'Термопринтер'},
+			'cardreader': {icon: 'cardreader', label: 'Считыватель карт'},
+			'ups': {icon: 'ups', label: 'ИБП'},
+			'nettop': {icon: 'nettop', label: 'Неттоп'},
+			'usbhub': {icon: 'usbhub', label: 'USB hub'}
+		}
+
+		var status = deviceItem.status;
+
+		var deviceName = deviceType[deviceItem.type].label + '<br/>' + deviceItem.serial;
+
+
+
+//div= JSON.stringify(deviceItem)
+.device__item
+	.device__info-container
+		div(class="device__icon icon-" + deviceType[deviceItem.type].icon)
+
+		.device__info
+			.device__name !{deviceName}
+			include ../status/status
+
+	- if (deviceItem.cycles)
+		.device__cycle
+			span.device__cycle__label Циклы (сделано/осталось)
+			span.device__cycle__amount= deviceItem.cycles
+	- if (deviceItem.button)
+		button(type='button', class=`btn btn-light`) Обнулить

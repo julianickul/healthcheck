@@ -1,0 +1,69 @@
+.form {
+	padding:12vh 4.7vw 14vh;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.form-group {
+	margin:0 5px 70px;
+	position: relative;
+	label {
+		font-size: 30px;
+		line-height: 0.8;
+		letter-spacing: 0.28px;
+		color: $T_c_placeholder;
+		position: absolute;
+		top: 25px;
+		left: 37px;
+		transform: translate3d(0, 0, 0);
+		transition: all 0.2s ease-in-out;
+		margin: 0;
+	}
+	&.error {
+		.form-control {
+			border-width: 3px;
+			&:focus + label {
+				color:#ff1146;
+			}
+		}
+		.form-control__tootlip {
+			font-size: 20px;
+			line-height: 1.2;
+			letter-spacing: 0.19px;
+			left: 34px;
+			padding-top:6px;
+			//color: #ff1146;
+		}
+	}
+}
+.form-control {
+	font-size:30px;
+	line-height: 0.8;
+	letter-spacing: 0.28px;
+	padding: 34px;
+	border-radius: 6px;
+	border-width: 3px;
+	color: $T_c_form_control;
+	appearance: none;
+	transition: all 0.2s ease-in-out;
+	//&[data-empty="false"] + label,
+	//&:valid + label,
+	&:focus + label{
+		color: $T_c_label;
+		font-size: 20px;
+		line-height: 1.2;
+		letter-spacing: 0.19px;
+		background: #fff;
+		padding: 6px;
+		transform: translate3d(-10px, -42px, 0);
+	}
+}
+
+.btn {
+	font-size: 40px;
+	padding: 32px 66px;
+	line-height: 1.2;
+	border-radius: 14px;
+}
+

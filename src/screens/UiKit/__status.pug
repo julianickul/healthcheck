@@ -1,0 +1,27 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageSettings
+	-
+		var statusItems = [
+			'enabled',
+			'disabled',
+			'unavailable',
+			'passed',
+			'failed',
+			'checkup_passed',
+			'checkup_failed',
+			'process',
+			'waiting'
+		]
+
+block pageContent
+	.content
+		h1 Компонент Status
+		br
+		br
+		each val, idx in statusItems
+			- var status = val
+			include ../../components/Desktop/status/status

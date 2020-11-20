@@ -1,0 +1,53 @@
+block queueUserCardSettings
+	- 
+		var userpicItem = {src: '../assets/images/temp/userpic.jpg'};
+
+
+//div= JSON.stringify(scanResAccess)
+.queue__usercard
+	.row
+		.col-3
+			.queue__usercard-image
+				include ../userpic/userpic
+				.btn-group
+					- var buttonArr = {text: 'Загрузить фото', style:'light', type: 'button', icon:'ic-user'}
+						include ../../UI/button/button
+					- var buttonArr = {text: 'Сделать фото', style:'light', type: 'button'}
+						include ../../UI/button/button
+		.col-9
+			form.form(action="?")
+				fieldset
+					legend.form-legend Данные сотрудника
+					.form-group
+						- var inputArr = {label: 'ФИО', placeholder:'ФИО', type:'text', id:'name', value:'Прокофьева Ольга Васильевна', readonly: formIsReadonly}
+						include ../../UI/input/input
+					.form-group
+						.row
+							.col
+								- var selectItem = {label: 'Пол',id: 'sex', options: ['Женский', 'Мужской'], readonly: formIsReadonly}
+								include ../../UI/select/select
+							.col
+								- var inputArr = {label: 'Дата рождения', placeholder:'Дата рождения', type:'text', id:'birth_date', value:'23.04.1986', icon:'ic-calendar', readonly: formIsReadonly}
+								include ../../UI/input/input
+				fieldset
+					legend.form-legend Данные о работе
+					.form-group
+						- var inputArr = {label: 'Организация', placeholder:'Организация', type:'text', id:'company', value:'АО "ТРАНСНЕФТЬ-СЕВЕР"', readonly: formIsReadonly}
+						include ../../UI/input/input
+					.form-group
+						- var inputArr = {label: 'Подразделение', placeholder:'Подразделение', type:'text', id:'department', value:'Вологодское РНУ, ЦТТ и СТ "Приводино"', readonly: formIsReadonly}
+						include ../../UI/input/input
+					.form-group
+						.row
+							.col
+								- var inputArr = {label: 'Должность', placeholder:'Должность', type:'text', id:'position', value:'Программист', readonly: formIsReadonly}
+								include ../../UI/input/input
+							.col
+								- var inputArr = {label: 'Дата начала работы', placeholder:'Дата начала работы', type:'text', id:'employment_start', value:'23.08.2008', icon:'ic-calendar', readonly: formIsReadonly}
+								include ../../UI/input/input
+
+				
+				.btn-group.btn-group_align-center
+					- var buttonArr = {text: 'Сохранить', style:'light', type: 'button', id:'usercard_save_button',disabled:true}
+					include ../../UI/button/button
+					span.btn-group__note *начните редактирование для активации кнопки

@@ -1,0 +1,96 @@
+.checkup__result-item {
+	border-radius: $border-radius;
+	box-shadow: $shadow-content;
+	padding:20px 90px;
+	margin-bottom: 30px;
+	position: relative;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		@include sprite-common-rules;
+		width: 18px;
+		height: 18px;
+		top: 27px;
+		right:20px;
+	}
+	.checkup__result-icon {
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		position: absolute;
+		top:20px;
+		left:20px;
+		display: block;
+		text-align: center;
+		line-height: 45px;
+		svg {
+			display: inline-block;
+		}
+		
+	}
+	&.result_type-blood-preasure {
+		.checkup__result-icon svg {
+			width: 27px;
+			height: 26px;
+		}
+	}
+	&.result_type-alcohol {
+		.checkup__result-icon svg {
+			width: 29px;
+			height: 29px;
+		}
+	}
+	&.result_type-temperature {
+		.checkup__result-icon svg {
+			width: 25px;
+			height: 25px;
+		}
+	}
+	&.result_notapproved {
+		.result_type-alcohol {
+			svg {
+				stroke: #ff1146;
+			}
+		}
+		.checkup__result-icon{
+			background-color: rgba(255,17,70,0.08);
+			svg {
+				fill:#ff1146;
+			}
+		}
+		&:after {
+			@include sprite('ic-decline');
+		}
+	}
+	&.result_approved {
+		.result_type-alcohol {
+			svg {
+				stroke: #23be76;
+			}
+		}
+		.checkup__result-icon{
+			background-color: rgba(35,190,118,.08);
+			svg {
+				fill:#23be76;
+			}
+		}
+		&:after {
+			@include sprite('ic-allow');
+		}
+	}
+
+	.checkup__result-item__title {
+		opacity: 0.6;
+		font-size: 21px;
+		font-weight: 500;
+		letter-spacing: 0.31px;
+	}
+	.checkup__result-item__value {
+		font-size: 46px;
+		font-weight: 500;
+		letter-spacing: 0.68px;
+	}
+}

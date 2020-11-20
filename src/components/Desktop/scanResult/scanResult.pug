@@ -1,0 +1,42 @@
+block scanresSettings
+	-
+		if (scanresItem === undefined) { 
+			var scanresItem = {
+				label:'Температура',
+				approved_value: '35,8 - 37,6°C',
+				value: '37,8',
+				approved: false, 
+				type: 'access',
+				editable: false
+			};
+			//type = ['access'] - маркер для селекта
+		}
+		var cls = 'scan-result__item ' + (scanresItem.approved ? 'scan-result_approved' : 'scan-result_refused')
+
+if (scanresItem.type === 'access')
+	div(class=cls)
+		//.form-group
+		select.custom-select(id="userAccess")
+			option(value="0") Допущен к работе
+			option(value="1") Не допущен к работе
+else
+	div(class=cls)
+		.scan-result__label= scanresItem.label + ' '
+		if (scanresItem.approved_value !== undefined)
+			span.scan-result__norm= '(' + scanresItem.approved_value + ')'
+		if (scanresItem.value !== undefined)
+			
+			if (scanresItem.editable !== undefined && scanresItem.editable)
+				.scan-result__value
+					.scan-result__view
+						span= scanresItem.value
+						span.scan-result__ico
+							+sprite-mix('ic-edit')
+					.scan-result__edit.isHidden
+						- var inputArr = {label:false, placeholder:'', type:'text', id:'scan_res[]', value: scanresItem.value}
+						include ../../UI/input/input
+						span.scan-result__ico
+							+sprite-mix('ic-check_outlined')
+			else
+				.scan-result__value= scanresItem.value
+					

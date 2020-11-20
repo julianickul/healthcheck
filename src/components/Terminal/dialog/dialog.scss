@@ -1,0 +1,89 @@
+.dialog {
+	flex-grow: 1;
+	text-align: center;
+	//padding: 50px 110px;
+	padding: 5% 110px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	&__img {
+		width: calc(49500%/1024);
+		max-width: 495px;
+		height: auto;
+		//margin: 0 auto 58px;
+		margin: 0 auto 5%;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&__title {
+		font-size: 3.75rem;
+		font-weight: 500;
+		letter-spacing: 0.88px;
+		//margin-bottom: 32px;
+		margin-bottom: 3%;
+	}
+	&__text {
+		opacity: 0.6;
+		font-size: 2.5rem;
+		line-height: 1.5;
+		letter-spacing: 0.59px;
+	}
+	&__personality {
+		margin: 60px auto;
+	}
+	&__personality-img {
+		@include sprite('ic-avatar-sq');
+		width: 142px;
+		height: 142px;
+		display: block;
+		margin: 0 auto 30px;
+		border-radius: 50%;
+	}
+	&__personality-name {
+		font-size: 36px;
+		font-weight: 500;
+		line-height: 1.67;
+		letter-spacing: 0.53px;
+		text-align: center;
+	}
+	
+	.btn-group {
+		margin-top: 40px;
+		.btn {
+			margin-right: 50px;
+			&:last-child {
+				margin-right:0;
+			}
+		}
+	}
+	&.dialog-processing {
+		.dialog__text {
+			opacity: 1;
+			margin-bottom: 0;
+		}
+	}
+	&.dialog-results {
+		justify-content: flex-start;
+	}
+}
+@media screen and (min-width: 320px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 640px) {
+	html {
+		font-size: 14px;
+	}
+}
+/*@media screen and (min-width: 1024px) {
+}*/
+@media screen and (min-width: 1280px) {
+	html {
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,26 @@
+block userpicSettings
+	-
+		if (userpicItem === undefined) { 
+			var userpicItem = {
+				src: '../assets/images/desktop_sprite.svg#ic-avatar-sq',
+				size: 's',
+				mark:false
+			}
+		}
+		var userpicSize = {
+			's': 80,
+			'm': 199,
+			'l': 249,
+			'xl': 407
+		}
+		var mark = [
+			'approved',
+			'refused'
+		]
+		if (userpicItem.src === undefined || !userpicItem.src) userpicItem.src = '../assets/images/desktop_sprite.svg#ic-avatar-sq';
+		var cls = (userpicItem.mark) ? 'userpic__item userpic_mark-'+ userpicItem.mark : 'userpic__item';
+		if (userpicItem.size !== undefined) 
+			cls = cls + " userpic_size-" + userpicItem.size;
+
+div(class=cls)
+	img(src=userpicItem.src)

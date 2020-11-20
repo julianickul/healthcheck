@@ -1,0 +1,14 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			title: 'Результаты исследования',
+			text: 'Распишитесь о прохождении медосмотра',
+			type: 'results'
+		}
+		var progressBarItem = {size:'80%'};
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

@@ -1,0 +1,71 @@
+extends ../../components/UI/page/page.pug
+
+block headStyles
+	link(href="../Desktop/styles.css", rel="stylesheet")
+
+block pageSettings
+	-
+		var inputs = [
+			{label: 'Логин', placeholder:'Введите логин', type:'text', id:'login', validationTip:'Обязательное поле', icon:'ic-user'},
+			{label: 'Пароль', placeholder:'Введите пароль', type:'password', id:'password', icon:'ic-eye'},
+			{label: 'Readonly', placeholder:'Readonly Field', type:'text', id:'login', validationTip:'Обязательное поле', icon:'ic-user', readonly:true},
+			{label: 'Disabled', placeholder:'Disabled Field', type:'text', id:'login', validationTip:'Обязательное поле', icon:'ic-user', disabled:true}
+		]
+
+		var buttons = [
+			{text: 'Primary', style:'primary', type: 'button'},
+			//- {text: 'Secondary', style:'secondary', type: 'button'},
+			{text: 'Success', style:'success', type: 'button'},
+			{text: 'Danger', style:'danger', type: 'button'},
+			//- {text: 'Warning', style:'warning', type: 'button'},
+			//{text: 'Info', style:'info', type: 'button'},
+			{text: 'Light', style:'light', type: 'button'},
+			//-{text: 'Dark', style:'dark', type: 'button'},
+			{text: 'Green light', style:'flat-green', type: 'button'},
+			{text: 'Red light', style:'flat-red', type: 'button'}
+		]
+
+block pageContent
+	.content
+		h1 Формы
+		|<br/>
+
+		
+		each val in inputs
+			- var inputArr = val
+			include ../../components/UI/input/input
+		br
+		br
+
+		select.custom-select(id="userAccess")
+			option Допущен к работе
+			option Не допущен к работе
+		br
+		br
+		.error
+			select.custom-select(id="userAccess")
+				option Допущен к работе
+				option Не допущен к работе
+
+		br
+		br
+		br
+		each val in buttons
+			- var buttonArr = val
+			include ../../components/UI/button/button
+		
+		br
+		br
+		- var disabled = {disabled:true} 
+		each val in buttons
+			- var buttonArr = Object.assign(val, disabled);
+			include ../../components/UI/button/button
+
+		br
+		br
+		- var large = {size: 'lg', disabled:false} 
+		each val in buttons
+			- var buttonArr = Object.assign(val, large);
+			include ../../components/UI/button/button
+
+		//-|<button type="button" class="btn btn-link">Link</button>

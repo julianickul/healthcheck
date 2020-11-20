@@ -1,0 +1,13 @@
+block logoSettings
+- 
+	if (logo === undefined) {
+		var logo =  {
+			text: 'Logo',
+			short_text: 'LG'
+		};
+	}
+
+.logo
+	a(href="../index.html") 
+		span= logo.text
+		span= logo.short_text

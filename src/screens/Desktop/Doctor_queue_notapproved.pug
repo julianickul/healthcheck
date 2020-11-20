@@ -1,0 +1,28 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	- var breadcrumbsArr = [{text: 'Очередь', last: false}, {text: '20.01.20 Прокофьева Ольга Васильевна', last: true}]
+	- var scanResAccess = {approved: false, type: 'access', accessSummary: 'Сотрудник не допущен к работе и направлен в медицинское учреждение для дальнейшей диагностики и лечения'};
+	
+block pageContent
+	.content.content_view-user-notapproved
+		include ../../components/UI/breadcrumbs/breadcrumbs
+		.queue
+			include ../../components/Desktop/queue/queue_statePanel
+			include ../../components/Desktop/tab/tab
+
+block append bodyScripts
+	script(src="../assets/js/vendors/moment.min.js")
+	script(src="../assets/js/vendors/jquery.daterangepicker.min.js")
+	script.
+		$(document).ready(function() {
+			initSearchTable({
+				table_id:'history_table',
+				excludeLast : true
+			});
+			initUserCardEditButton();
+			initUserAccessSelect()
+			initScanResultsEdit();
+			initSimpleDatepicker($('#employment_start'));
+			initSimpleDatepicker($('#birth_date'));
+		});

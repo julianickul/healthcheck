@@ -1,0 +1,35 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+mixin form-control-mix(error)
+	div(class='form-group' + (error ? ' error' : ''))
+		input(type=inputArr.type, class='form-control', id=inputArr.id)
+		label(for=inputArr.id)= inputArr.label
+		if (error)
+			.form-control__tootlip= inputArr.validationTip
+
+block pageContent
+	.content
+		form.form(action="?")
+			h1 Введите данные
+			.row
+				.col.col-6
+					- var inputArr = {label: 'Host name', type:'text', id:'hostname'}
+						+form-control-mix
+					- var inputArr = {label: 'Маска', placeholder:'Маска', type:'text', id:'mask', validationTip:'Обязательное поле'}
+						+form-control-mix(true)
+				.col.col-6
+					- var inputArr = {label: 'ip адрес', type:'text', id:'ip'}
+						+form-control-mix
+					- var inputArr = {label: 'Шлюз', placeholder:'Шлюз', type:'text', id:'gateway'}
+						+form-control-mix
+			.row
+				.col
+					.btn-group.btn-group_align-center
+						- var buttonArr = {text: 'Сохранить', style:'primary', type: 'submit'}
+						include ../../components/UI/button/button
+
+//-block bodyScripts
+	script.
+		const initTerminalForm = () => {
+			document.querySelector('.from_control').addEventListener('input', (e) => {this.target.setAttribute('data-empty', this.currentTarget.value);})
+		}
+		initTerminalForm();

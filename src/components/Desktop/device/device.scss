@@ -1,0 +1,43 @@
+@import './device__icons';
+
+.device__list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.device__item {
+	width:310px;
+	color: $c_device;
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 2;
+	margin-right: 15px;
+	margin-bottom: 50px;
+	
+	.device__info-container {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 15px;
+		.device__icon {
+			margin-right: 32px;
+		}
+	}
+	.device__name {
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+	.device__cycle {
+		margin-bottom: 20px;
+		.device__cycle__label {
+			color: $c_device_cycle_label;
+			font-size: 12px;
+			font-weight: 500;
+			line-height: 1.75;
+			vertical-align: middle;
+			margin-right: 14px;
+		}
+		.device__cycle__amount {
+			vertical-align: middle;
+		}
+	}
+}

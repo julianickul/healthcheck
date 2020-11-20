@@ -1,0 +1,22 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	- var pageView = 'auth'
+	- var buttonArr = {text: 'Войти', style:'primary', type: 'submit'}
+
+block sideBar
+
+block main
+	h1.page__title= ProjectName
+	div.content
+		form.form(action="?")
+			.form__title Авторизация
+			- var inputArr = {label: 'Логин', placeholder:'Введите логин', type:'text', id:'login', validationTip:'*стандартный вывод ошибки', icon:'ic-user'}
+				include ../../components/UI/input/input
+			- var inputArr = {label: 'Пароль', placeholder:'Введите пароль', type:'password', id:'password', icon:'ic-eye'}
+				include ../../components/UI/input/input
+			
+			.btn-group.btn-group_align-center
+				include ../../components/UI/button/button
+
+block bodyScripts

@@ -1,0 +1,11 @@
+block documentSettings
+	-
+		if (documentItem === undefined) { 
+			var documentItem = {
+				anchor: '#',
+				text:'document descriptiom',
+			}
+		}
+
+.document__item
+	a(href="documentItem.anchor")= documentItem.text

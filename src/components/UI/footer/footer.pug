@@ -1,0 +1,7 @@
+block FooterSettings
+- if (copyright === undefined) { var copyright = {text:'All rights recieved', company:{name:'Company', url:'http://company.ru'}}; }
+
+
+footer.footer
+	.copyright
+		p #{copyright.text} &copy; <a href='#{copyright.company.url}' target='_blank'>#{copyright.company.name}</a> 2020

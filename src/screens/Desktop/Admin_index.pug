@@ -1,0 +1,41 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	-
+		var breadcrumbsArr = [{text: 'Главная', last: true}]
+		var tableLabels = [
+				'Здравпункты',
+				'ФИО дежурного',
+				'Начало смены',
+				'Конец смены',
+				'Проверено',
+				'Ожидается',
+				'Пройдено осмотров',
+				'Допущено',
+				'Не допущено'
+			]
+			var tableValues = [
+				[ 'Тверь', 'Прокофьева Ольга Васильевна', '23.11.2019 13:16', '24.11.2019 00:00', '100', '-', '100', '<span class="mark_allow">100</span>', '<span class="mark_refuse">-</span>'],
+				[ 'Тверь', 'Клименко Лидия Васильевна', '23.11.2019 13:16', '24.11.2019 00:00', '100', '-', '100', '<span class="mark_allow">98</span>', '<span class="mark_refuse">2</span>'],
+				[ 'Усинск', 'Зяблик Любовь Петровна', '23.11.2019 13:16', '24.11.2019 00:00', '100', '-', '100', '<span class="mark_allow">100</span>', '<span class="mark_refuse">-</span>'],
+				[ 'Усинск', 'Липчук Лидия Александровна', '23.11.2019 13:16', '24.11.2019 00:00', '100', '-', '100', '<span class="mark_allow">95</span>', '<span class="mark_refuse">5</span>'],
+				[ 'Ухта', 'Шамустдинова Елена Викторовна', '23.11.2019 13:16', '24.11.2019 00:00', '100', '-', '100', '<span class="mark_allow">100</span>', '<span class="mark_refuse">-</span>'],
+				[ 'Ухта', 'Мироненко Любовь Васильевна', '23.11.2019 13:16', '24.11.2019 00:00', '100', '-', '100', '<span class="mark_allow">100</span>', '<span class="mark_refuse">-</span>'],
+			]
+			var tableItem = {
+				id: 'admin_main_table'
+			}
+
+	
+block pageContent
+	.content
+		include ../../components/UI/breadcrumbs/breadcrumbs
+		include ../../components/Desktop/table/table
+
+block append bodyScripts
+	script.
+		$(document).ready(function() {
+			initSearchTable({
+				table_id:'admin_main_table'
+			});
+		});

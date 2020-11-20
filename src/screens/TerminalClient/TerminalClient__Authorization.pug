@@ -1,0 +1,15 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			img: 'img-login',
+			title:'Авторизация',
+			text: 'Приложите карту к считывателю',
+			type: 'info'
+		}
+		var progressBarItem = {size:'25%'};
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

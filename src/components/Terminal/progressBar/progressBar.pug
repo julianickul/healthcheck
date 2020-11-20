@@ -1,0 +1,9 @@
+block progressBarSettings
+-
+	if (progressBarItem === undefined) { 
+			var progressBarItem = {
+				size: '40%'
+			}
+		}
+.progressBar
+	span(style='width:' + progressBarItem.size + ';')

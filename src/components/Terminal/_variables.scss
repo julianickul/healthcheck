@@ -1,0 +1,28 @@
+@import '../UI/_variables';
+
+/* Redefine variables */
+$c_background			: $color-white;
+
+/* Color Definition */
+/*
+$c_form_input_text			: $color-blue01;
+$c_form_input_border		: $color-blue01;
+
+
+$c_btn_bgcolor_green		: $color-green;
+$c_btn_bgcolor_red			: $color-red;
+$c_btn_color_light			: $color-blue01;
+
+
+$c_terminal_title			: $color-gray01;
+$c_terminal					: $color-darkgray01;
+
+/* colors for terminal > */
+$terminal_color_blue01		: #12448d;
+
+$T_c_header					:$color-darkgray01;
+$T_c_placeholder			: rgba(48, 48, 48, 0.7);
+$T_c_label					: $terminal_color_blue01;
+$T_c_progressbar			: $terminal_color_blue01;
+$T_c_text					: $color-darkgray01;
+$T_c_form_control			: #000;

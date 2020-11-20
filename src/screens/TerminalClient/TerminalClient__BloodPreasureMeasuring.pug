@@ -1,0 +1,13 @@
+extends ../../components/Terminal/pageTerminal/pageTerminal.pug
+
+block pageSettings
+	-
+		var dialogItem = {
+			text: 'Идет измерение давления',
+			type: 'measuring'
+		}
+		var progressBarItem = {size:'50%'};
+block pageContent
+	.content
+		include ../../components/Terminal/progressBar/progressBar.pug
+		include ../../components/Terminal/dialog/dialog.pug

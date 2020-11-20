@@ -1,0 +1,26 @@
+include ../../mixins.pug
+- var ProjectName = 'ESMO_ARM'
+
+block pageSettings
+
+
+doctype html
+html
+	head
+		title= ProjectName
+		meta(charset="utf-8")
+		meta(name="keywords", content= ProjectName)
+		meta(name="description", content= ProjectName)
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+		link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap", rel="stylesheet")
+		link(href="./styles.css", rel="stylesheet")
+
+	body
+		.svg-icons#svg-icons(style="display:none;")
+			include ../../../assets/compiled/svg/terminal_sprite.svg
+		.wrapper
+			block pageContent
+
+		block bodyScripts
+			

@@ -1,0 +1,35 @@
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+/* Color scheme overrides > */
+$theme-colors: (
+	"primary":    #275599,
+    "success":    #38c483,
+    "danger":     #fe2757,
+    "light":      #ecf0f6
+);
+$green-light:#e4f7ee;
+$red-light:#ffe7ed;
+$colors: map-merge(
+  (
+    "green-light": $green-light,
+    "red-light": $red-light
+  ),
+  $colors
+);
+$theme-colors: map-merge(
+  (
+    "flat-green":    $green-light,
+    "flat-red":  $red-light
+  ),
+  $theme-colors
+);
+$input-placeholder-color: rgba(71, 95, 123, 0.5);
+
+// Optional
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/utilities/flex";

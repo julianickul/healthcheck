@@ -1,0 +1,66 @@
+block SidebarSettings
+- if (sidebarMenuArr === undefined) { var sidebarMenuArr = [{text:'About', anchor:"about"}]; }
+- if (sidebarId === undefined) { var sidebarId = "sidebar" }
+
+nav.sidebar#sidebar
+	include ../logo/logo
+	ul.sidebar-menu#sidebar
+		li.sidebar-menu__item
+			a.sidebar-menu__link(href="#home")
+				+sprite-mix('ic-home')
+				span.sidebar-menu__text Главная
+		li.sidebar-menu__item
+			a.sidebar-menu__link(href="#terminals")
+				+sprite-mix('ic-checkup')
+				span.sidebar-menu__text Терминалы
+				span.badge.bagde_type-fail 9
+		li.sidebar-menu__item
+			a.sidebar-menu__link(href="#queue")
+				+sprite-mix('ic-turn')
+				span.sidebar-menu__text Очередь
+				span.badge.bagde_type-success 9
+		li.sidebar-menu__item
+			a.sidebar-menu__link(href="#archive")
+				+sprite-mix('ic-scaling')
+				span.sidebar-menu__text Архив
+		li.sidebar-menu__item.is-active
+			a.sidebar-menu__link(href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-1" aria-controls="submenu-1")
+				+sprite-mix('ic-scaling')
+				span.sidebar-menu__text Масштабируемость
+			ul.sidebar-menu.collapse.show#submenu-1
+				li.sidebar-menu__item
+					a.sidebar-menu__link(href="#")
+						span.sidebar-menu__text Пункт 1
+				li.sidebar-menu__item
+					a.sidebar-menu__link(href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-2" aria-controls="submenu-2")
+						span.sidebar-menu__text Пункт 2
+					ul.sidebar-menu.collapse.show#submenu-2
+						li.sidebar-menu__item
+							a.sidebar-menu__link(href="#")
+								span.sidebar-menu__text Пункт 2.1
+						li.sidebar-menu__item
+							a.sidebar-menu__link(href="#" data-toggle="collapse" aria-expanded="true" data-target="#submenu-3" aria-controls="submenu-3")
+								span.sidebar-menu__text Пункт 2.2
+							ul.sidebar-menu.collapse.show#submenu-3
+								li.sidebar-menu__item
+									a.sidebar-menu__link(href="#")
+										span.sidebar-menu__text Пункт 2.2.1
+								li.sidebar-menu__item.is-active
+									a.sidebar-menu__link(href="#")
+										span.sidebar-menu__text Пункт 2.2.2
+
+	//-ul.sidebar-menu(id = sidebarId)
+		- for (var i = 0; i < sidebarMenuArr.length; i++) {
+			li(class= sidebarMenuArr[i].active ? 'sidebar-menu__item is-active' : 'sidebar-menu__item ')
+				a.sidebar-menu__link(href="#" + sidebarMenuArr[i].anchor) 
+					+sprite-mix(sidebarMenuArr[i].img)
+					span.sidebar-menu__text #{sidebarMenuArr[i].text}
+				
+				
+				if (sidebarMenuArr[i].submenu)
+					.collapse.show(id=sidebarMenuArr[i].submenu)
+						ul.nav.nav-small.flex-column
+							each menuVal, menuIdx in sidebarSubmenu[sidebarMenuArr[i].submenu]
+								li.nav-item
+									a.nav-link(href="#" + menuVal.anchor)= menuVal.text
+		-}

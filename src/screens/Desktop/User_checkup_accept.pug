@@ -1,0 +1,22 @@
+extends ../../components/UI/page/page.pug
+
+block pageSettings
+	- var sidebarMenuArr = [{text:'Главная', anchor:'home', img: 'ic-home', active: true}];
+	-
+		var userData = {
+			name: 'Прокофьева Ольга Васильевна',
+			sex: 'Женский',
+			birthDate: '16.01.1984',
+			age: '35',
+			company: 'Красный котельщик',
+			department: '-',
+			position: 'Медсестра',
+			checkupTime: '26.03.2020, 08:15',
+		}
+		var userpicItem = {
+			src: '../assets/images/temp/userpic.jpg'
+		}
+		var checkupApproved = true;
+	
+block pageContent
+	include ../../components/Desktop/userCheckup/userCheckup
