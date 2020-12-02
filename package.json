@@ -2,15 +2,16 @@
   "name": "esmo",
   "version": "1.0.0",
   "description": "ESMO Medotrade",
-  "author": {
-    "name": "Yuliya Nikul",
-    "email": "julia.nickul@gmail.com",
-    "url": "https://github.com/"
+  "author": "Yuliya Nikul",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julianickul/healthcheck.git"
   },
   "main": "index.js",
   "scripts": {
     "build": "set NODE_ENV='production' && gulp build",
-    "dev": "gulp"
+    "dev": "gulp",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "license": "ISC",
@@ -24,9 +25,10 @@
     "@babel/preset-env": "^7.9.5",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.13",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
+    "gh-pages": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-concat": "^2.6.1",
@@ -49,9 +51,5 @@
     "datatables.net-select-dt": "^1.3.1",
     "jquery-datatables-checkboxes": "^1.2.11",
     "validator": "^11.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
   }
 }
