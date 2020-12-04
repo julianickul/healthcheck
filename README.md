@@ -1,5 +1,7 @@
 # Верстка - Медицинские осмотры
 
+Доступно для просмотра на  https://julianickul.github.io/healthcheck/
+
 ## Используемые технологии
 * Gulp 
 * PUG 
